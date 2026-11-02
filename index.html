@@ -10,10 +10,10 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,23 +22,23 @@
         theme: {
           extend: {
             colors: {
-              brand: {
-                DEFAULT: '#3B82F6',
-                hover: '#2563EB',
-                dark: '#1D4ED8',
-                subtle: 'rgba(59, 130, 246, 0.12)',
+              canvas: '#080B11',
+              surface: {
+                DEFAULT: '#0E131F',
+                elevated: '#141B2D',
+                subtle: '#101626',
+                border: '#1D263B',
               },
-              navy: {
-                950: '#070B14',
-                900: '#0B1120',
-                850: '#0F172A',
-                800: '#141E33',
-                750: '#19243E',
-                700: '#1E293B',
-              }
+              brand: {
+                DEFAULT: '#2563EB',
+                hover: '#1D4ED8',
+                light: '#3B82F6',
+                subtle: 'rgba(37, 99, 235, 0.12)',
+              },
             },
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
             }
           }
         }
@@ -49,28 +49,41 @@
         scroll-behavior: smooth;
       }
       body {
-        font-family: 'Inter', sans-serif;
-        background-color: #0B1120;
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        background-color: #080B11;
         color: #F8FAFC;
+        letter-spacing: -0.011em;
+      }
+      /* Clean hairline border utility */
+      .hairline-border {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .hairline-border-strong {
+        border: 1px solid rgba(255, 255, 255, 0.14);
       }
     </style>
   </head>
-  <body class="bg-[#0B1120] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+  <body class="bg-[#080B11] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
 
     <!-- 1. NAVBAR -->
-    <header class="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#0B1120]/90 backdrop-blur-md">
+    <header class="sticky top-0 z-50 w-full border-b border-white/[0.07] bg-[#080B11]/90 backdrop-blur-md">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-lg shadow-md shadow-blue-500/20 group-hover:bg-blue-500 transition-colors">
-            🏗️
+        <a href="#" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+          <div class="w-8 h-8 rounded-md bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:bg-blue-600/30 transition-colors">
+            <!-- Architectural Geometric Monogram Icon -->
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18"></path>
+              <path d="M5 21V7l7-4 7 4v14"></path>
+              <path d="M9 10h6"></path>
+              <path d="M9 14h6"></path>
+              <path d="M9 18h6"></path>
+            </svg>
           </div>
-          <div class="flex flex-col">
-            <span class="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
-              SiteSmart
-              <span class="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/60">Dubai</span>
-            </span>
-          </div>
+          <span class="text-base font-bold tracking-tight text-white flex items-center gap-2">
+            SiteSmart
+            <span class="text-[11px] font-mono text-slate-400 tracking-normal font-normal">UAE</span>
+          </span>
         </a>
 
         <!-- Desktop Navigation Links -->
@@ -82,26 +95,28 @@
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-3">
-          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-md shadow-blue-600/25 transition-all active:scale-95">
+          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-md shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-400">
             Start Free Trial
           </a>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile Menu Toggle Button -->
         <div class="flex md:hidden">
-          <button id="mobile-menu-btn" type="button" class="text-slate-400 hover:text-white p-2 rounded-lg focus:outline-none" aria-label="Toggle Menu">
-            <span id="menu-icon" class="text-xl">☰</span>
+          <button id="mobile-menu-btn" type="button" class="text-slate-400 hover:text-white p-2 rounded focus:outline-none focus:ring-1 focus:ring-slate-500" aria-label="Toggle Navigation">
+            <svg id="menu-icon-svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
         </div>
       </div>
 
       <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-[#0F172A] px-4 pt-3 pb-5 space-y-3">
-        <a href="#how-it-works" class="block text-slate-200 hover:text-white font-medium py-1.5 mobile-link">How it works</a>
-        <a href="#pricing" class="block text-slate-200 hover:text-white font-medium py-1.5 mobile-link">Pricing</a>
-        <a href="#faq" class="block text-slate-200 hover:text-white font-medium py-1.5 mobile-link">FAQ</a>
+      <div id="mobile-menu" class="hidden md:hidden border-b border-white/[0.08] bg-[#0E131F] px-4 pt-3 pb-5 space-y-2">
+        <a href="#how-it-works" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">How it works</a>
+        <a href="#pricing" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">Pricing</a>
+        <a href="#faq" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">FAQ</a>
         <div class="pt-2">
-          <a href="https://wa.me/971XXXXXXXX" class="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-lg shadow-md transition-all">
+          <a href="https://wa.me/971XXXXXXXX" class="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider py-2.5 rounded-md transition-colors">
             Start Free Trial
           </a>
         </div>
@@ -109,81 +124,104 @@
     </header>
 
     <!-- 2. HERO SECTION -->
-    <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
-      <!-- Background Glow Accent -->
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 sm:w-[600px] h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-32 overflow-hidden">
+      <!-- Subtle Architectural Radial Illumination -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-blue-600/[0.07] rounded-full blur-[140px] pointer-events-none"></div>
 
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs font-medium text-slate-300 mb-6">
-          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-          Built for UAE MEP & Fit-Out Subcontractors
+        <!-- Trust Label -->
+        <div class="inline-flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+          <span>Engineered for MEP & Fit-Out Subcontractors in Dubai</span>
         </div>
 
         <!-- Headline -->
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight sm:leading-tight mb-6 max-w-4xl mx-auto">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6 max-w-4xl mx-auto" style="text-wrap: balance;">
           Your construction site talks.<br class="hidden sm:inline" /> You just don't listen.
         </h1>
 
         <!-- Subheadline -->
-        <p class="text-base sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-9 font-normal">
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-10 font-normal">
           SiteSmart reads every message in your site WhatsApp group, catches emergencies instantly, and sends you a clean daily summary at 6 PM. No app to install. No training needed.
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
-          <a href="https://wa.me/971XXXXXXXX" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base px-7 py-3.5 rounded-lg shadow-lg shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-95">
-            <span>💬</span> Start Free Trial
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-16">
+          <a href="https://wa.me/971XXXXXXXX" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-6 py-3.5 rounded-md shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Start Free Trial</span>
           </a>
-          <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-700 hover:border-slate-500 bg-slate-900/60 hover:bg-slate-800/60 text-slate-200 hover:text-white font-medium text-base px-7 py-3.5 rounded-lg transition-all">
-            See How It Works
+          <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 hairline-border bg-white/[0.03] hover:bg-white/[0.06] text-slate-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-all">
+            <span>See How It Works</span>
+            <svg class="w-4 h-4 stroke-current text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
           </a>
         </div>
 
-        <!-- Mock Phone Screenshot Area -->
+        <!-- Mock Phone Screenshot Area (High-End Technical UI Frame) -->
         <div class="max-w-md mx-auto">
-          <div class="relative rounded-3xl p-3 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 shadow-2xl shadow-blue-950/50 border border-slate-700/70">
+          <div class="relative rounded-2xl p-2.5 bg-[#0C101A] hairline-border shadow-2xl">
             <!-- Screen container -->
-            <div class="rounded-2xl bg-[#0F172A] border border-slate-800 overflow-hidden text-left shadow-inner">
-              <!-- Chat header -->
-              <div class="bg-[#1E293B] px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold text-white shadow">
-                    🤖
+            <div class="rounded-xl bg-[#080B11] border border-white/[0.06] overflow-hidden text-left">
+              <!-- Messenger Header -->
+              <div class="bg-[#0E1422] px-4 py-3 border-b border-white/[0.06] flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-md bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+                    <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
                   </div>
                   <div>
-                    <div class="text-xs font-bold text-white flex items-center gap-1">
-                      SiteSmart Bot
-                      <span class="text-[9px] bg-blue-500/20 text-blue-400 px-1 py-0.2 rounded font-normal">Active</span>
+                    <div class="text-xs font-semibold text-white flex items-center gap-1.5">
+                      SiteSmart Dispatch
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     </div>
-                    <div class="text-[10px] text-slate-400">Downtown Tower - MEP Group</div>
+                    <div class="text-[11px] text-slate-400 font-mono">Business Bay Tower · MEP Channel</div>
                   </div>
                 </div>
-                <div class="text-[11px] font-semibold text-blue-400">6:00 PM</div>
+                <div class="text-[11px] font-mono text-slate-400">18:00 GST</div>
               </div>
 
-              <!-- Chat content body -->
-              <div class="p-4 space-y-3 bg-[#0B1120]/90">
-                <!-- Message bubble -->
-                <div class="bg-[#1E293B] border border-slate-700/80 rounded-2xl rounded-tl-sm p-4 text-xs space-y-2.5 shadow-md">
-                  <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
-                    <span class="font-bold text-slate-100 flex items-center gap-1.5">
-                      📊 Overview — 02/11/2026
-                    </span>
-                    <span class="text-[10px] text-slate-400 font-mono">18 messages</span>
+              <!-- Message Stream Body -->
+              <div class="p-4 bg-[#080B11]/95 space-y-3">
+                <!-- Message Card Bubble -->
+                <div class="bg-[#111726] border border-white/[0.08] rounded-lg p-4 space-y-2.5 shadow-sm text-xs">
+                  <div class="flex items-center justify-between border-b border-white/[0.06] pb-2 text-slate-200">
+                    <span class="font-semibold text-white tracking-tight">Overview · 02/11/2026</span>
+                    <span class="font-mono text-[10px] text-slate-400">18 messages analyzed</span>
                   </div>
 
-                  <div class="space-y-1.5 text-slate-200 leading-snug">
-                    <p><span class="font-bold text-red-400">🚨 Problems —</span> Water leak in DB room touching main panel</p>
-                    <p><span class="font-bold text-amber-300">📦 Deliveries —</span> 50m cable 4mm to Floor 3</p>
-                    <p><span class="font-bold text-emerald-400">💰 Expenses —</span> 785 AED total</p>
-                    <p><span class="font-bold text-blue-400">🔧 Progress —</span> Chiller repaired in lobby (Ahmed)</p>
-                    <p><span class="font-bold text-indigo-300">⚡ Tomorrow —</span> Isolate DB room leak, deliver cement</p>
+                  <div class="space-y-2 text-slate-200 leading-snug pt-1">
+                    <div class="flex items-start gap-2.5">
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-500/15 text-red-400 border border-red-500/30 shrink-0 uppercase">Alert</span>
+                      <span><strong class="text-white font-medium">Problems —</strong> Water leak in DB room touching main panel</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 shrink-0 uppercase">Supply</span>
+                      <span><strong class="text-white font-medium">Deliveries —</strong> 50m cable 4mm to Floor 3</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shrink-0 uppercase">Cost</span>
+                      <span><strong class="text-white font-medium">Expenses —</strong> 785 AED total</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-500/15 text-blue-400 border border-blue-500/30 shrink-0 uppercase">Work</span>
+                      <span><strong class="text-white font-medium">Progress —</strong> Chiller repaired in lobby (Ahmed)</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-500/15 text-slate-300 border border-slate-500/30 shrink-0 uppercase">Plan</span>
+                      <span><strong class="text-white font-medium">Tomorrow —</strong> Isolate DB room leak, deliver cement</span>
+                    </div>
                   </div>
 
-                  <div class="flex items-center justify-between pt-1 border-t border-slate-700/40 text-[10px] text-slate-400">
-                    <span>Delivered automatically via SiteSmart</span>
-                    <span class="text-blue-400 font-mono">18:00 ✓✓</span>
+                  <div class="flex items-center justify-between pt-2 border-t border-white/[0.06] text-[10px] text-slate-400">
+                    <span>Delivered automatically via WhatsApp / Telegram</span>
+                    <span class="font-mono text-blue-400">18:00 ✓✓</span>
                   </div>
                 </div>
               </div>
@@ -195,71 +233,84 @@
     </section>
 
     <!-- 3. PROBLEM SECTION (dark background) -->
-    <section class="py-20 bg-[#070B14] border-y border-slate-800/80">
+    <section class="py-24 bg-[#06080E] border-y border-white/[0.06]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-14">
-          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">The Reality on Dubai Sites</div>
+        <div class="max-w-2xl mb-16">
+          <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Operational Bottlenecks</div>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             The Problem You Already Know
           </h2>
-          <p class="mt-3 text-slate-400 text-sm sm:text-base">
-            Managing MEP & fit-out jobs across Dubai means constant WhatsApp chatter. Here is why the old way is costing you money.
+          <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+            Running 2 to 5 concurrent sites in the UAE creates an unmanageable stream of informal group chatter. Critical operational data vanishes in the thread.
           </p>
         </div>
 
         <!-- 3 Cards with stats -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Card 1 -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-xl p-6 sm:p-7 hover:border-slate-700 transition-all flex flex-col justify-between">
+          <div class="bg-[#0B0F19] hairline-border rounded-xl p-7 flex flex-col justify-between hover:border-white/20 transition-colors">
             <div>
-              <div class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-800/40 text-blue-400 flex items-center justify-center text-2xl mb-5">
-                💬
+              <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-6">
+                <!-- Message Volume Icon -->
+                <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
-                150+ messages/day in your site group
+              <div class="text-3xl font-extrabold text-white tracking-tight font-mono mb-2">150+</div>
+              <h3 class="text-base font-bold text-white mb-2">
+                messages/day in your site group
               </h3>
               <p class="text-sm font-semibold text-blue-400 mb-3">
                 You can't read them all
               </p>
               <p class="text-slate-400 text-sm leading-relaxed">
-                Between site engineers, subbies, and foremen sharing photos and voice notes, you’re on the road or in client meetings. 90% of messages are chit-chat, but you have no time to filter them.
+                Site engineers, material suppliers, and foremen publish hundreds of notes, voice clips, and invoices daily. Vital issues are diluted in irrelevant chatter.
               </p>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-[#0F172A] border border-red-900/40 rounded-xl p-6 sm:p-7 hover:border-red-700/60 transition-all flex flex-col justify-between relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-red-600/5 rounded-full blur-xl pointer-events-none"></div>
+          <div class="bg-[#0B0F19] hairline-border rounded-xl p-7 flex flex-col justify-between hover:border-red-500/40 transition-colors">
             <div>
-              <div class="w-12 h-12 rounded-lg bg-red-950/80 border border-red-800/50 text-red-400 flex items-center justify-center text-2xl mb-5">
-                🚨
+              <div class="w-10 h-10 rounded-md bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center mb-6">
+                <!-- Alert Icon -->
+                <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 9v4"></path>
+                  <path d="M12 17h.01"></path>
+                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
+              <div class="text-3xl font-extrabold text-red-400 tracking-tight font-mono mb-2">7 Hours</div>
+              <h3 class="text-base font-bold text-white mb-2">
                 Critical alerts buried in noise
               </h3>
               <p class="text-sm font-semibold text-red-400 mb-3">
                 Water leak reported at 2 PM, you see it at 9 PM
               </p>
               <p class="text-slate-400 text-sm leading-relaxed">
-                A short circuit, missing civil defense clearance, or a punctured pipe gets dropped in chat right before 50 photos of tiles arrive. You discover the emergency 7 hours too late.
+                By the time you open the app after customer meetings, water has soaked electrical distribution boards or civil defense violations have accrued fines.
               </p>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-xl p-6 sm:p-7 hover:border-slate-700 transition-all flex flex-col justify-between">
+          <div class="bg-[#0B0F19] hairline-border rounded-xl p-7 flex flex-col justify-between hover:border-white/20 transition-colors">
             <div>
-              <div class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-800/40 text-blue-400 flex items-center justify-center text-2xl mb-5">
-                📞
+              <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-6">
+                <!-- Phone Call Icon -->
+                <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
               </div>
-              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
+              <div class="text-3xl font-extrabold text-white tracking-tight font-mono mb-2">45 Min</div>
+              <h3 class="text-base font-bold text-white mb-2">
                 No daily overview
               </h3>
               <p class="text-sm font-semibold text-blue-400 mb-3">
                 You call the site engineer every evening asking 'what happened today?'
               </p>
               <p class="text-slate-400 text-sm leading-relaxed">
-                Engineers are exhausted, details get forgotten, and cash payments for petty cash materials vanish into thin air. You end each evening blind to what got completed.
+                Foremen forget procurement slips, subbie delays remain unexplained, and you finish each workday without a clear written status of project milestones.
               </p>
             </div>
           </div>
@@ -268,64 +319,70 @@
     </section>
 
     <!-- 4. HOW IT WORKS (3 steps) -->
-    <section id="how-it-works" class="py-20 sm:py-24 bg-[#0B1120]">
+    <section id="how-it-works" class="py-24 bg-[#080B11]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Zero Friction Setup</div>
+        <div class="max-w-2xl mb-16">
+          <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Deployment Flow</div>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             How It Works
           </h2>
-          <p class="mt-3 text-slate-400 text-sm sm:text-base">
-            No software for workers to download. No passwords. No friction.
+          <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+            Zero behavioral adjustments required from your workforce. Complete visibility configured in under one minute.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Step 1 -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 relative">
+          <div class="bg-[#0E131F] hairline-border rounded-xl p-7 relative">
             <div class="flex items-center justify-between mb-6">
-              <span class="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
-                Step 01
+              <span class="text-xs font-mono font-semibold text-blue-400 px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20">
+                01
               </span>
-              <span class="text-2xl">👥</span>
+              <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.765z" />
+              </svg>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">
               Add the bot to your group
             </h3>
             <p class="text-slate-300 text-sm leading-relaxed">
-              Takes 30 seconds. No app, no login for your team. Just invite the SiteSmart number to your existing WhatsApp or Telegram project group.
+              Takes 30 seconds. No app, no login for your team. Simply invite the verified SiteSmart number to your existing WhatsApp or Telegram group chat.
             </p>
           </div>
 
           <!-- Step 2 -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 relative">
+          <div class="bg-[#0E131F] hairline-border rounded-xl p-7 relative">
             <div class="flex items-center justify-between mb-6">
-              <span class="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
-                Step 02
+              <span class="text-xs font-mono font-semibold text-blue-400 px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20">
+                02
               </span>
-              <span class="text-2xl">🧠</span>
+              <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+              </svg>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">
               It reads and understands
             </h3>
             <p class="text-slate-300 text-sm leading-relaxed">
-              AI reads every message in English, Arabic, Hindi, Urdu, Tagalog. Detects problems, deliveries, expenses, progress in real time.
+              AI reads every message in English, Arabic, Hindi, Urdu, Tagalog. Detects problems, deliveries, expenses, progress autonomously in real time.
             </p>
           </div>
 
           <!-- Step 3 -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 relative">
+          <div class="bg-[#0E131F] hairline-border rounded-xl p-7 relative">
             <div class="flex items-center justify-between mb-6">
-              <span class="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
-                Step 03
+              <span class="text-xs font-mono font-semibold text-blue-400 px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20">
+                03
               </span>
-              <span class="text-2xl">⚡</span>
+              <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+              </svg>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">
               You get alerts + daily summary
             </h3>
             <p class="text-slate-300 text-sm leading-relaxed">
-              Urgent issues = instant DM to you. Every day at 6 PM = clean summary on your phone. Clear, categorized, and ready before your drive home.
+              Urgent issues = instant DM to you. Every day at 6 PM = clean summary on your phone. Formatted with executive clarity before you leave site.
             </p>
           </div>
         </div>
@@ -333,149 +390,184 @@
     </section>
 
     <!-- 5. DEMO SECTION -->
-    <section class="py-20 bg-[#070B14] border-y border-slate-800/80">
+    <section class="py-24 bg-[#06080E] border-y border-white/[0.06]">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Live Dispatch Preview</div>
+        <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Standard Transmission Format</div>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
           What You'll Receive Every Evening
         </h2>
-        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-10">
-          This exact structured briefing lands on your phone at 6:00 PM Gulf Standard Time.
+        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-12 leading-relaxed">
+          The verified output below reflects an authentic unedited daily broadcast delivered directly to project principals at 18:00 GST.
         </p>
 
-        <!-- Mock Telegram / WhatsApp message container -->
-        <div class="max-w-lg mx-auto bg-[#111A2E] border border-slate-700/80 rounded-2xl shadow-2xl p-4 sm:p-6 text-left">
+        <!-- Mock Telegram / WhatsApp Message Frame -->
+        <div class="max-w-lg mx-auto bg-[#0C101A] hairline-border rounded-xl shadow-2xl p-4 sm:p-6 text-left">
           <!-- Chat header bar -->
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+          <div class="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-lg text-white font-bold">
-                📱
+              <div class="w-8 h-8 rounded-md bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
               </div>
               <div>
-                <div class="text-sm font-bold text-white flex items-center gap-1.5">
-                  SiteSmart Dispatch
-                  <span class="text-emerald-400 text-xs">●</span>
+                <div class="text-xs font-semibold text-white flex items-center gap-1.5">
+                  SiteSmart Bot
+                  <span class="text-[10px] font-mono text-emerald-400">● VERIFIED</span>
                 </div>
-                <div class="text-[11px] text-slate-400">Site: Business Bay Fit-out B2</div>
+                <div class="text-[11px] text-slate-400 font-mono">Channel: Dubai South Warehouse Fit-Out</div>
               </div>
             </div>
-            <div class="text-xs font-mono text-slate-400 bg-slate-800/80 px-2 py-1 rounded">
+            <div class="text-[11px] font-mono text-slate-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
               18:00 GST
             </div>
           </div>
 
-          <!-- Realistic Mock Message Bubble -->
-          <div class="bg-[#18233C] border border-slate-700/90 rounded-xl p-5 font-sans shadow-inner">
-            <div class="space-y-3 text-slate-100 text-sm sm:text-base leading-relaxed">
-              <div class="font-bold text-slate-100 pb-2 border-b border-slate-700/50 flex items-center justify-between">
+          <!-- Realistic Mock Message Bubble with EXACT Required Content -->
+          <div class="bg-[#121826] border border-white/[0.09] rounded-lg p-5 font-sans">
+            <div class="space-y-3 text-slate-100 text-sm leading-relaxed">
+              <div class="font-semibold text-white pb-2.5 border-b border-white/[0.08] flex items-center justify-between font-mono text-xs">
                 <span>📊 Overview — 02/11/2026 — 18 messages</span>
               </div>
-              <div class="space-y-2 pt-1 font-medium">
+              <div class="space-y-2.5 pt-1 text-xs sm:text-sm font-normal">
                 <p class="flex items-start gap-2">
-                  <span>🚨</span>
-                  <span><strong class="text-red-400 font-semibold">Problems —</strong> Water leak in DB room touching main panel</span>
+                  <span class="shrink-0 font-mono text-red-400 font-semibold">🚨 Problems —</span>
+                  <span class="text-slate-200">Water leak in DB room touching main panel</span>
                 </p>
                 <p class="flex items-start gap-2">
-                  <span>📦</span>
-                  <span><strong class="text-amber-300 font-semibold">Deliveries —</strong> 50m cable 4mm to Floor 3</span>
+                  <span class="shrink-0 font-mono text-amber-300 font-semibold">📦 Deliveries —</span>
+                  <span class="text-slate-200">50m cable 4mm to Floor 3</span>
                 </p>
                 <p class="flex items-start gap-2">
-                  <span>💰</span>
-                  <span><strong class="text-emerald-400 font-semibold">Expenses —</strong> 785 AED total</span>
+                  <span class="shrink-0 font-mono text-emerald-400 font-semibold">💰 Expenses —</span>
+                  <span class="text-slate-200">785 AED total</span>
                 </p>
                 <p class="flex items-start gap-2">
-                  <span>🔧</span>
-                  <span><strong class="text-blue-400 font-semibold">Progress —</strong> Chiller repaired in lobby (Ahmed)</span>
+                  <span class="shrink-0 font-mono text-blue-400 font-semibold">🔧 Progress —</span>
+                  <span class="text-slate-200">Chiller repaired in lobby (Ahmed)</span>
                 </p>
                 <p class="flex items-start gap-2">
-                  <span>⚡</span>
-                  <span><strong class="text-indigo-300 font-semibold">Tomorrow —</strong> Isolate DB room leak, deliver cement</span>
+                  <span class="shrink-0 font-mono text-slate-300 font-semibold">⚡ Tomorrow —</span>
+                  <span class="text-slate-200">Isolate DB room leak, deliver cement</span>
                 </p>
               </div>
             </div>
 
             <!-- Meta footer -->
-            <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
-              <span class="flex items-center gap-1">
-                <span>🔒</span> Bot verified
-              </span>
-              <span class="text-blue-400 font-mono">18:00 ✓✓</span>
+            <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400 font-mono">
+              <span>Encrypted transmission</span>
+              <span class="text-blue-400">18:00 ✓✓</span>
             </div>
           </div>
 
-          <p class="text-center text-xs text-slate-400 mt-4">
-            Directly to your WhatsApp or Telegram. Read in 20 seconds.
+          <p class="text-center text-xs text-slate-400 mt-4 font-mono">
+            Directly delivered to WhatsApp & Telegram. 20-second read.
           </p>
         </div>
       </div>
     </section>
 
     <!-- 6. FEATURES GRID (2x3) -->
-    <section class="py-20 sm:py-24 bg-[#0B1120]">
+    <section class="py-24 bg-[#080B11]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Engineered For The Field</div>
+        <div class="max-w-2xl mb-16">
+          <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Core Capabilities</div>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Features Built for Subcontractors
           </h2>
-          <p class="mt-3 text-slate-400 text-sm sm:text-base">
-            No complicated dashboards you'll never log into. Only what you need.
+          <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+            Practical automation engineered specifically for the MEP and interior fit-out industry in the United Arab Emirates.
           </p>
         </div>
 
-        <!-- 2x3 Grid (1 col on mobile, 2 on md, 3 on lg) -->
+        <!-- 2x3 Grid with Clean Architectural SVG Icons -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- 1. Multi-language -->
-          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <div class="text-3xl mb-4">🌍</div>
-            <h3 class="text-lg font-bold text-white mb-2">Multi-language</h3>
+          <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
+            <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Multi-language</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Understands English, Arabic, Hindi, Urdu, Tagalog, and Malayalam. Accurately deciphers site slang, mixed dialects, and messy voice-to-text transcriptions.
+              English, Arabic, Hindi, Urdu, Tagalog, Malayalam. Intelligently processes multilingual group dynamics, shorthand, and vernacular site voice transcriptions.
             </p>
           </div>
 
           <!-- 2. Real-time emergency alerts -->
-          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <div class="text-3xl mb-4">🚨</div>
-            <h3 class="text-lg font-bold text-white mb-2">Real-time emergency alerts</h3>
+          <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-red-500/30 transition-colors">
+            <div class="w-10 h-10 rounded-md bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M12 8v4"></path>
+                <path d="M12 16h.01"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Real-time emergency alerts</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Detects fire hazards, worker injury, structural damage, water leaks, and DEWA or municipality violation risks instantly, sending an urgent private DM to your phone.
+              Catches fire, injury, structural risks, and DEWA violations. Dispatches an urgent private notification to owners and project directors within seconds.
             </p>
           </div>
 
           <!-- 3. Expense tracking -->
-          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <div class="text-3xl mb-4">💰</div>
-            <h3 class="text-lg font-bold text-white mb-2">Expense tracking</h3>
+          <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
+            <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+                <circle cx="7" cy="15" r="1"></circle>
+                <circle cx="12" cy="15" r="1"></circle>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Expense tracking</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Automatic from messages. When a foreman sends "Bought 50m tape and nails 120 AED cash", it logs the exact amount and item without anyone filling out spreadsheets.
+              Automatic from messages. Parses petty cash expenditures, diesel refuels, hardware runs, and material invoices without requiring manual ledger inputs.
             </p>
           </div>
 
           <!-- 4. Daily summary at 6 PM -->
-          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <div class="text-3xl mb-4">📊</div>
-            <h3 class="text-lg font-bold text-white mb-2">Daily summary at 6 PM Dubai time</h3>
+          <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
+            <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Daily summary at 6 PM Dubai time</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Arrives punctually at 18:00 GST every single evening. Overview, hazards, deliveries, expenses, completed work, and tomorrow's top priorities at a glance.
+              Structured synopsis scheduled promptly at 18:00 GST. Immediate visibility over completions, roadblocks, and next-day logistics.
             </p>
           </div>
 
           <!-- 5. No behavior change -->
-          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <div class="text-3xl mb-4">🔒</div>
-            <h3 class="text-lg font-bold text-white mb-2">No behavior change</h3>
+          <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
+            <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <polyline points="16 11 18 13 22 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">No behavior change</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Works directly in your existing groups. Site engineers and foremen keep typing and sending voice notes as they always do. Zero software training required.
+              Works directly within your existing groups. Foremen and engineers continue communicating normally on WhatsApp or Telegram with zero onboarding friction.
             </p>
           </div>
 
           <!-- 6. Telegram + WhatsApp support -->
-          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <div class="text-3xl mb-4">📱</div>
-            <h3 class="text-lg font-bold text-white mb-2">Telegram + WhatsApp support</h3>
+          <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
+            <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">Telegram + WhatsApp support</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
-              Native integration with the two apps every contractor in Dubai already uses. Add to your existing group chat in 30 seconds with no complex configuration.
+              Dual-platform integration for the primary messaging services across Gulf contracting networks. Real-time webhook architecture with zero lag.
             </p>
           </div>
         </div>
@@ -483,130 +575,124 @@
     </section>
 
     <!-- 7. PRICING (3 tiers) -->
-    <section id="pricing" class="py-20 sm:py-24 bg-[#070B14] border-y border-slate-800/80">
+    <section id="pricing" class="py-24 bg-[#06080E] border-y border-white/[0.06]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Simple, Predictable Pricing</div>
+        <div class="max-w-2xl mb-16">
+          <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Transparent Subscription</div>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Plans for Growing Subcontractors
           </h2>
-          <p class="mt-3 text-slate-400 text-sm sm:text-base">
-            All plans come with a 7-day free trial. No credit card required. Cancel anytime.
+          <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+            All plans include a 7-day free trial, no credit card required. Cancel anytime without commitments.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <!-- Starter Tier -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div class="bg-[#0B0F19] hairline-border rounded-xl p-7 flex flex-col justify-between hover:border-white/20 transition-colors">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold text-white">Starter</h3>
-                <span class="text-xs font-semibold px-2 py-1 rounded bg-slate-800 text-slate-300">Single Site</span>
+                <h3 class="text-lg font-bold text-white">Starter</h3>
+                <span class="text-xs font-mono text-slate-400">Single project</span>
               </div>
               <div class="mb-6">
-                <span class="text-4xl font-extrabold text-white">99 AED</span>
-                <span class="text-slate-400 text-sm"> / month</span>
+                <span class="text-3xl font-extrabold text-white font-mono">99 AED</span>
+                <span class="text-slate-400 text-xs"> / month</span>
               </div>
-              <ul class="space-y-3.5 text-sm text-slate-300 mb-8 border-t border-slate-800/80 pt-6">
+              <ul class="space-y-3 text-sm text-slate-300 mb-8 border-t border-white/[0.06] pt-6 font-normal">
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Telegram integration
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Telegram
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> 1 group chat monitored
+                  <span class="text-blue-400 font-mono text-xs">✓</span> 1 group
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Daily summary at 6 PM
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Daily summary + alerts
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Real-time urgent alerts
-                </li>
-                <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Multilingual AI parser
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Multilingual AI parser
                 </li>
               </ul>
             </div>
             <div>
-              <div class="text-xs text-center text-slate-400 mb-3">7-day free trial, no credit card required</div>
-              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+              <div class="text-[11px] text-center text-slate-400 mb-3 font-mono">7-day free trial, no credit card required</div>
+              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md transition-colors">
                 Start Free Trial
               </a>
             </div>
           </div>
 
           <!-- Pro Tier (MOST POPULAR) -->
-          <div class="bg-[#0F172A] border-2 border-blue-500 rounded-2xl p-7 flex flex-col justify-between relative shadow-xl shadow-blue-900/20">
-            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
-              <span class="bg-blue-600 text-white text-xs uppercase tracking-wider font-extrabold px-3.5 py-1 rounded-full shadow-md">
+          <div class="bg-[#0E1422] border border-blue-500/60 rounded-xl p-7 flex flex-col justify-between relative shadow-lg shadow-blue-900/10">
+            <div class="absolute -top-3 left-7">
+              <span class="bg-blue-600 text-white text-[10px] uppercase font-mono tracking-widest font-bold px-2.5 py-0.5 rounded shadow-sm">
                 MOST POPULAR
               </span>
             </div>
             <div>
-              <div class="flex items-center justify-between mb-4 mt-2">
-                <h3 class="text-xl font-bold text-white">Pro</h3>
-                <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/50">2-5 Sites</span>
+              <div class="flex items-center justify-between mb-4 mt-1">
+                <h3 class="text-lg font-bold text-white">Pro</h3>
+                <span class="text-xs font-mono text-blue-400">2-5 projects</span>
               </div>
               <div class="mb-6">
-                <span class="text-4xl font-extrabold text-white">199 AED</span>
-                <span class="text-slate-400 text-sm"> / month</span>
+                <span class="text-3xl font-extrabold text-white font-mono">199 AED</span>
+                <span class="text-slate-400 text-xs"> / month</span>
               </div>
-              <ul class="space-y-3.5 text-sm text-slate-200 mb-8 border-t border-slate-800/80 pt-6">
+              <ul class="space-y-3 text-sm text-slate-200 mb-8 border-t border-white/[0.08] pt-6 font-normal">
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Telegram integration
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Telegram
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> 3 groups monitored
+                  <span class="text-blue-400 font-mono text-xs">✓</span> 3 groups
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Priority instant alerts
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Priority alerts
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Weekly summary reports
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Weekly reports
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Automated expense tracking
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Daily summaries at 6 PM
                 </li>
               </ul>
             </div>
             <div>
-              <div class="text-xs text-center text-slate-400 mb-3">7-day free trial, no credit card required</div>
-              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg shadow-md shadow-blue-600/30 transition-all hover:scale-[1.02]">
+              <div class="text-[11px] text-center text-slate-400 mb-3 font-mono">7-day free trial, no credit card required</div>
+              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md shadow-sm transition-all focus:outline-none">
                 Start Free Trial
               </a>
             </div>
           </div>
 
           <!-- Business Tier -->
-          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div class="bg-[#0B0F19] hairline-border rounded-xl p-7 flex flex-col justify-between hover:border-white/20 transition-colors">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold text-white">Business</h3>
-                <span class="text-xs font-semibold px-2 py-1 rounded bg-slate-800 text-slate-300">WhatsApp Native</span>
+                <h3 class="text-lg font-bold text-white">Business</h3>
+                <span class="text-xs font-mono text-slate-400">WhatsApp native</span>
               </div>
               <div class="mb-6">
-                <span class="text-4xl font-extrabold text-white">299 AED</span>
-                <span class="text-slate-400 text-sm"> / month</span>
+                <span class="text-3xl font-extrabold text-white font-mono">299 AED</span>
+                <span class="text-slate-400 text-xs"> / month</span>
               </div>
-              <ul class="space-y-3.5 text-sm text-slate-300 mb-8 border-t border-slate-800/80 pt-6">
+              <ul class="space-y-3 text-sm text-slate-300 mb-8 border-t border-white/[0.06] pt-6 font-normal">
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> WhatsApp integration
+                  <span class="text-blue-400 font-mono text-xs">✓</span> WhatsApp
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> 3 groups included
+                  <span class="text-blue-400 font-mono text-xs">✓</span> 3 groups
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> All features & summaries
+                  <span class="text-blue-400 font-mono text-xs">✓</span> All features
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Dedicated support via WhatsApp
-                </li>
-                <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-bold">✓</span> Custom alerts configuration
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Dedicated support
                 </li>
               </ul>
             </div>
             <div>
-              <div class="text-xs text-center text-slate-400 mb-3">7-day free trial, no credit card required</div>
-              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+              <div class="text-[11px] text-center text-slate-400 mb-3 font-mono">7-day free trial, no credit card required</div>
+              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md transition-colors">
                 Start Free Trial
               </a>
             </div>
@@ -616,56 +702,64 @@
     </section>
 
     <!-- 8. FAQ (accordion style, 4 questions) -->
-    <section id="faq" class="py-20 sm:py-24 bg-[#0B1120]">
+    <section id="faq" class="py-24 bg-[#080B11]">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-14">
-          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Got Questions?</div>
+        <div class="mb-14">
+          <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Technical & Operational Inquiries</div>
           <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
             Frequently Asked Questions
           </h2>
         </div>
 
-        <div class="space-y-4" id="faq-accordion">
-          <!-- Item 1 -->
-          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
-            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+        <div class="space-y-3" id="faq-accordion">
+          <!-- Question 1 -->
+          <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
               <span>Does my team need to install anything?</span>
-              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+              <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
             </button>
-            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
               No. The bot joins your existing group. They keep writing exactly as they do now.
             </div>
           </div>
 
-          <!-- Item 2 -->
-          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
-            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+          <!-- Question 2 -->
+          <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
               <span>What languages does it understand?</span>
-              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+              <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
             </button>
-            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
               English, Arabic, Hindi, Urdu, Tagalog, Malayalam, and mixed messages.
             </div>
           </div>
 
-          <!-- Item 3 -->
-          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
-            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+          <!-- Question 3 -->
+          <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
               <span>Is my data secure?</span>
-              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+              <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
             </button>
-            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
               All data is encrypted and stored securely. We never share your site information.
             </div>
           </div>
 
-          <!-- Item 4 -->
-          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
-            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+          <!-- Question 4 -->
+          <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
               <span>Can I try before paying?</span>
-              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+              <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
             </button>
-            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
               Yes, 7-day free trial with full features. No credit card needed.
             </div>
           </div>
@@ -674,23 +768,23 @@
     </section>
 
     <!-- 9. FINAL CTA -->
-    <section class="py-20 sm:py-24 bg-[#070B14] border-t border-slate-800/80 relative overflow-hidden text-center">
-      <!-- Glow background -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+    <section class="py-24 bg-[#06080E] border-t border-white/[0.06] text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4" style="text-wrap: balance;">
           Stop missing what matters on your site.
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-8">
-          Join MEP and fit-out contractors across Dubai who stay in control without spending hours reading chats.
+        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed">
+          Operational control delivered to your phone every evening at 18:00 GST.
         </p>
 
         <div class="inline-block">
-          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition-all hover:scale-105 active:scale-95">
-            <span>💬</span> Start Your Free Trial
+          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-md shadow-sm transition-all focus:outline-none">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Start Your Free Trial</span>
           </a>
-          <p class="text-xs text-slate-400 mt-3">
+          <p class="text-xs text-slate-400 mt-3 font-mono">
             Setup takes 2 minutes. No credit card required.
           </p>
         </div>
@@ -698,26 +792,30 @@
     </section>
 
     <!-- 10. FOOTER -->
-    <footer class="bg-[#05080F] border-t border-slate-800/80 py-12">
+    <footer class="bg-[#05060A] border-t border-white/[0.06] py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <!-- Logo & Tagline -->
           <div class="flex flex-col items-center md:items-start gap-1">
-            <div class="flex items-center gap-2">
-              <span class="w-7 h-7 rounded bg-blue-600 flex items-center justify-center text-sm">🏗️</span>
-              <span class="text-lg font-bold text-white tracking-tight">SiteSmart</span>
+            <div class="flex items-center gap-2.5">
+              <div class="w-6 h-6 rounded bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14" />
+                </svg>
+              </div>
+              <span class="text-sm font-bold text-white tracking-tight">SiteSmart</span>
             </div>
             <p class="text-xs text-slate-400">Built for UAE construction teams</p>
           </div>
 
           <!-- Contact Email -->
-          <div class="text-sm text-slate-300">
-            <span class="text-slate-500">Contact: </span>
-            <a href="mailto:hello@sitesmart.ai" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">hello@sitesmart.ai</a>
+          <div class="text-xs text-slate-300 font-mono">
+            <span class="text-slate-400">Contact: </span>
+            <a href="mailto:hello@sitesmart.ai" class="text-slate-300 hover:text-white transition-colors underline underline-offset-4">hello@sitesmart.ai</a>
           </div>
 
           <!-- Copyright -->
-          <div class="text-xs text-slate-500">
+          <div class="text-xs text-slate-400 font-mono">
             © 2026 SiteSmart. All rights reserved.
           </div>
         </div>
@@ -736,14 +834,13 @@
           // Close all other accordion items
           document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
           document.querySelectorAll('.faq-icon').forEach(i => {
-            i.textContent = '＋';
-            i.classList.remove('rotate-45');
+            i.style.transform = 'rotate(0deg)';
           });
 
-          // If was not open, open this one
+          // Toggle this item
           if (!isExpanded) {
             content.classList.remove('hidden');
-            icon.textContent = '✕';
+            icon.style.transform = 'rotate(45deg)';
           }
         });
       });
@@ -751,17 +848,14 @@
       // Mobile Menu functionality
       const mobileBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
 
       if (mobileBtn && mobileMenu) {
         mobileBtn.addEventListener('click', () => {
           const isHidden = mobileMenu.classList.contains('hidden');
           if (isHidden) {
             mobileMenu.classList.remove('hidden');
-            menuIcon.textContent = '✕';
           } else {
             mobileMenu.classList.add('hidden');
-            menuIcon.textContent = '☰';
           }
         });
 
@@ -769,7 +863,6 @@
         document.querySelectorAll('.mobile-link').forEach(link => {
           link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
-            menuIcon.textContent = '☰';
           });
         });
       }
