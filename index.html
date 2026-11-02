@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SiteSmart - AI Site Intelligence for UAE Construction</title>
+    <meta name="description" content="SiteSmart reads every message in your site WhatsApp and Telegram group, detects emergencies instantly, and delivers daily summaries at 6 PM." />
+    <meta property="og:title" content="SiteSmart - AI Site Intelligence for UAE Construction" />
+    <meta property="og:description" content="SiteSmart reads every message in your site WhatsApp and Telegram group, catches emergencies instantly, and sends a clean daily summary at 6 PM." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#3B82F6',
+                hover: '#2563EB',
+                dark: '#1D4ED8',
+                subtle: 'rgba(59, 130, 246, 0.12)',
+              },
+              navy: {
+                950: '#070B14',
+                900: '#0B1120',
+                850: '#0F172A',
+                800: '#141E33',
+                750: '#19243E',
+                700: '#1E293B',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0B1120;
+        color: #F8FAFC;
+      }
+    </style>
+  </head>
+  <body class="bg-[#0B1120] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- 1. NAVBAR -->
+    <header class="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#0B1120]/90 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-lg shadow-md shadow-blue-500/20 group-hover:bg-blue-500 transition-colors">
+            🏗️
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
+              SiteSmart
+              <span class="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/60">Dubai</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#how-it-works" class="hover:text-white transition-colors">How it works</a>
+          <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-md shadow-blue-600/25 transition-all active:scale-95">
+            Start Free Trial
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" type="button" class="text-slate-400 hover:text-white p-2 rounded-lg focus:outline-none" aria-label="Toggle Menu">
+            <span id="menu-icon" class="text-xl">☰</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-[#0F172A] px-4 pt-3 pb-5 space-y-3">
+        <a href="#how-it-works" class="block text-slate-200 hover:text-white font-medium py-1.5 mobile-link">How it works</a>
+        <a href="#pricing" class="block text-slate-200 hover:text-white font-medium py-1.5 mobile-link">Pricing</a>
+        <a href="#faq" class="block text-slate-200 hover:text-white font-medium py-1.5 mobile-link">FAQ</a>
+        <div class="pt-2">
+          <a href="https://wa.me/971XXXXXXXX" class="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-lg shadow-md transition-all">
+            Start Free Trial
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
+      <!-- Background Glow Accent -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 sm:w-[600px] h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs font-medium text-slate-300 mb-6">
+          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          Built for UAE MEP & Fit-Out Subcontractors
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight sm:leading-tight mb-6 max-w-4xl mx-auto">
+          Your construction site talks.<br class="hidden sm:inline" /> You just don't listen.
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-base sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-9 font-normal">
+          SiteSmart reads every message in your site WhatsApp group, catches emergencies instantly, and sends you a clean daily summary at 6 PM. No app to install. No training needed.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
+          <a href="https://wa.me/971XXXXXXXX" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base px-7 py-3.5 rounded-lg shadow-lg shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-95">
+            <span>💬</span> Start Free Trial
+          </a>
+          <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-700 hover:border-slate-500 bg-slate-900/60 hover:bg-slate-800/60 text-slate-200 hover:text-white font-medium text-base px-7 py-3.5 rounded-lg transition-all">
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Mock Phone Screenshot Area -->
+        <div class="max-w-md mx-auto">
+          <div class="relative rounded-3xl p-3 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 shadow-2xl shadow-blue-950/50 border border-slate-700/70">
+            <!-- Screen container -->
+            <div class="rounded-2xl bg-[#0F172A] border border-slate-800 overflow-hidden text-left shadow-inner">
+              <!-- Chat header -->
+              <div class="bg-[#1E293B] px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold text-white shadow">
+                    🤖
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white flex items-center gap-1">
+                      SiteSmart Bot
+                      <span class="text-[9px] bg-blue-500/20 text-blue-400 px-1 py-0.2 rounded font-normal">Active</span>
+                    </div>
+                    <div class="text-[10px] text-slate-400">Downtown Tower - MEP Group</div>
+                  </div>
+                </div>
+                <div class="text-[11px] font-semibold text-blue-400">6:00 PM</div>
+              </div>
+
+              <!-- Chat content body -->
+              <div class="p-4 space-y-3 bg-[#0B1120]/90">
+                <!-- Message bubble -->
+                <div class="bg-[#1E293B] border border-slate-700/80 rounded-2xl rounded-tl-sm p-4 text-xs space-y-2.5 shadow-md">
+                  <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
+                    <span class="font-bold text-slate-100 flex items-center gap-1.5">
+                      📊 Overview — 02/11/2026
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-mono">18 messages</span>
+                  </div>
+
+                  <div class="space-y-1.5 text-slate-200 leading-snug">
+                    <p><span class="font-bold text-red-400">🚨 Problems —</span> Water leak in DB room touching main panel</p>
+                    <p><span class="font-bold text-amber-300">📦 Deliveries —</span> 50m cable 4mm to Floor 3</p>
+                    <p><span class="font-bold text-emerald-400">💰 Expenses —</span> 785 AED total</p>
+                    <p><span class="font-bold text-blue-400">🔧 Progress —</span> Chiller repaired in lobby (Ahmed)</p>
+                    <p><span class="font-bold text-indigo-300">⚡ Tomorrow —</span> Isolate DB room leak, deliver cement</p>
+                  </div>
+
+                  <div class="flex items-center justify-between pt-1 border-t border-slate-700/40 text-[10px] text-slate-400">
+                    <span>Delivered automatically via SiteSmart</span>
+                    <span class="text-blue-400 font-mono">18:00 ✓✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. PROBLEM SECTION (dark background) -->
+    <section class="py-20 bg-[#070B14] border-y border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">The Reality on Dubai Sites</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            The Problem You Already Know
+          </h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            Managing MEP & fit-out jobs across Dubai means constant WhatsApp chatter. Here is why the old way is costing you money.
+          </p>
+        </div>
+
+        <!-- 3 Cards with stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-xl p-6 sm:p-7 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-800/40 text-blue-400 flex items-center justify-center text-2xl mb-5">
+                💬
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
+                150+ messages/day in your site group
+              </h3>
+              <p class="text-sm font-semibold text-blue-400 mb-3">
+                You can't read them all
+              </p>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Between site engineers, subbies, and foremen sharing photos and voice notes, you’re on the road or in client meetings. 90% of messages are chit-chat, but you have no time to filter them.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-[#0F172A] border border-red-900/40 rounded-xl p-6 sm:p-7 hover:border-red-700/60 transition-all flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-red-600/5 rounded-full blur-xl pointer-events-none"></div>
+            <div>
+              <div class="w-12 h-12 rounded-lg bg-red-950/80 border border-red-800/50 text-red-400 flex items-center justify-center text-2xl mb-5">
+                🚨
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
+                Critical alerts buried in noise
+              </h3>
+              <p class="text-sm font-semibold text-red-400 mb-3">
+                Water leak reported at 2 PM, you see it at 9 PM
+              </p>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                A short circuit, missing civil defense clearance, or a punctured pipe gets dropped in chat right before 50 photos of tiles arrive. You discover the emergency 7 hours too late.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-xl p-6 sm:p-7 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-800/40 text-blue-400 flex items-center justify-center text-2xl mb-5">
+                📞
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 leading-snug">
+                No daily overview
+              </h3>
+              <p class="text-sm font-semibold text-blue-400 mb-3">
+                You call the site engineer every evening asking 'what happened today?'
+              </p>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Engineers are exhausted, details get forgotten, and cash payments for petty cash materials vanish into thin air. You end each evening blind to what got completed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS (3 steps) -->
+    <section id="how-it-works" class="py-20 sm:py-24 bg-[#0B1120]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Zero Friction Setup</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            How It Works
+          </h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            No software for workers to download. No passwords. No friction.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <!-- Step 1 -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 relative">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
+                Step 01
+              </span>
+              <span class="text-2xl">👥</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              Add the bot to your group
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Takes 30 seconds. No app, no login for your team. Just invite the SiteSmart number to your existing WhatsApp or Telegram project group.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 relative">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
+                Step 02
+              </span>
+              <span class="text-2xl">🧠</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              It reads and understands
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              AI reads every message in English, Arabic, Hindi, Urdu, Tagalog. Detects problems, deliveries, expenses, progress in real time.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 relative">
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/60">
+                Step 03
+              </span>
+              <span class="text-2xl">⚡</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              You get alerts + daily summary
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Urgent issues = instant DM to you. Every day at 6 PM = clean summary on your phone. Clear, categorized, and ready before your drive home.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DEMO SECTION -->
+    <section class="py-20 bg-[#070B14] border-y border-slate-800/80">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Live Dispatch Preview</div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+          What You'll Receive Every Evening
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-10">
+          This exact structured briefing lands on your phone at 6:00 PM Gulf Standard Time.
+        </p>
+
+        <!-- Mock Telegram / WhatsApp message container -->
+        <div class="max-w-lg mx-auto bg-[#111A2E] border border-slate-700/80 rounded-2xl shadow-2xl p-4 sm:p-6 text-left">
+          <!-- Chat header bar -->
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-lg text-white font-bold">
+                📱
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white flex items-center gap-1.5">
+                  SiteSmart Dispatch
+                  <span class="text-emerald-400 text-xs">●</span>
+                </div>
+                <div class="text-[11px] text-slate-400">Site: Business Bay Fit-out B2</div>
+              </div>
+            </div>
+            <div class="text-xs font-mono text-slate-400 bg-slate-800/80 px-2 py-1 rounded">
+              18:00 GST
+            </div>
+          </div>
+
+          <!-- Realistic Mock Message Bubble -->
+          <div class="bg-[#18233C] border border-slate-700/90 rounded-xl p-5 font-sans shadow-inner">
+            <div class="space-y-3 text-slate-100 text-sm sm:text-base leading-relaxed">
+              <div class="font-bold text-slate-100 pb-2 border-b border-slate-700/50 flex items-center justify-between">
+                <span>📊 Overview — 02/11/2026 — 18 messages</span>
+              </div>
+              <div class="space-y-2 pt-1 font-medium">
+                <p class="flex items-start gap-2">
+                  <span>🚨</span>
+                  <span><strong class="text-red-400 font-semibold">Problems —</strong> Water leak in DB room touching main panel</span>
+                </p>
+                <p class="flex items-start gap-2">
+                  <span>📦</span>
+                  <span><strong class="text-amber-300 font-semibold">Deliveries —</strong> 50m cable 4mm to Floor 3</span>
+                </p>
+                <p class="flex items-start gap-2">
+                  <span>💰</span>
+                  <span><strong class="text-emerald-400 font-semibold">Expenses —</strong> 785 AED total</span>
+                </p>
+                <p class="flex items-start gap-2">
+                  <span>🔧</span>
+                  <span><strong class="text-blue-400 font-semibold">Progress —</strong> Chiller repaired in lobby (Ahmed)</span>
+                </p>
+                <p class="flex items-start gap-2">
+                  <span>⚡</span>
+                  <span><strong class="text-indigo-300 font-semibold">Tomorrow —</strong> Isolate DB room leak, deliver cement</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Meta footer -->
+            <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1">
+                <span>🔒</span> Bot verified
+              </span>
+              <span class="text-blue-400 font-mono">18:00 ✓✓</span>
+            </div>
+          </div>
+
+          <p class="text-center text-xs text-slate-400 mt-4">
+            Directly to your WhatsApp or Telegram. Read in 20 seconds.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FEATURES GRID (2x3) -->
+    <section class="py-20 sm:py-24 bg-[#0B1120]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Engineered For The Field</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Features Built for Subcontractors
+          </h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            No complicated dashboards you'll never log into. Only what you need.
+          </p>
+        </div>
+
+        <!-- 2x3 Grid (1 col on mobile, 2 on md, 3 on lg) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 1. Multi-language -->
+          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
+            <div class="text-3xl mb-4">🌍</div>
+            <h3 class="text-lg font-bold text-white mb-2">Multi-language</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Understands English, Arabic, Hindi, Urdu, Tagalog, and Malayalam. Accurately deciphers site slang, mixed dialects, and messy voice-to-text transcriptions.
+            </p>
+          </div>
+
+          <!-- 2. Real-time emergency alerts -->
+          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
+            <div class="text-3xl mb-4">🚨</div>
+            <h3 class="text-lg font-bold text-white mb-2">Real-time emergency alerts</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Detects fire hazards, worker injury, structural damage, water leaks, and DEWA or municipality violation risks instantly, sending an urgent private DM to your phone.
+            </p>
+          </div>
+
+          <!-- 3. Expense tracking -->
+          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
+            <div class="text-3xl mb-4">💰</div>
+            <h3 class="text-lg font-bold text-white mb-2">Expense tracking</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Automatic from messages. When a foreman sends "Bought 50m tape and nails 120 AED cash", it logs the exact amount and item without anyone filling out spreadsheets.
+            </p>
+          </div>
+
+          <!-- 4. Daily summary at 6 PM -->
+          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
+            <div class="text-3xl mb-4">📊</div>
+            <h3 class="text-lg font-bold text-white mb-2">Daily summary at 6 PM Dubai time</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Arrives punctually at 18:00 GST every single evening. Overview, hazards, deliveries, expenses, completed work, and tomorrow's top priorities at a glance.
+            </p>
+          </div>
+
+          <!-- 5. No behavior change -->
+          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
+            <div class="text-3xl mb-4">🔒</div>
+            <h3 class="text-lg font-bold text-white mb-2">No behavior change</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Works directly in your existing groups. Site engineers and foremen keep typing and sending voice notes as they always do. Zero software training required.
+            </p>
+          </div>
+
+          <!-- 6. Telegram + WhatsApp support -->
+          <div class="bg-[#0F172A] border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
+            <div class="text-3xl mb-4">📱</div>
+            <h3 class="text-lg font-bold text-white mb-2">Telegram + WhatsApp support</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Native integration with the two apps every contractor in Dubai already uses. Add to your existing group chat in 30 seconds with no complex configuration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PRICING (3 tiers) -->
+    <section id="pricing" class="py-20 sm:py-24 bg-[#070B14] border-y border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Simple, Predictable Pricing</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Plans for Growing Subcontractors
+          </h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            All plans come with a 7-day free trial. No credit card required. Cancel anytime.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <!-- Starter Tier -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-white">Starter</h3>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-slate-800 text-slate-300">Single Site</span>
+              </div>
+              <div class="mb-6">
+                <span class="text-4xl font-extrabold text-white">99 AED</span>
+                <span class="text-slate-400 text-sm"> / month</span>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-300 mb-8 border-t border-slate-800/80 pt-6">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Telegram integration
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> 1 group chat monitored
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Daily summary at 6 PM
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Real-time urgent alerts
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Multilingual AI parser
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="text-xs text-center text-slate-400 mb-3">7-day free trial, no credit card required</div>
+              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+                Start Free Trial
+              </a>
+            </div>
+          </div>
+
+          <!-- Pro Tier (MOST POPULAR) -->
+          <div class="bg-[#0F172A] border-2 border-blue-500 rounded-2xl p-7 flex flex-col justify-between relative shadow-xl shadow-blue-900/20">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="bg-blue-600 text-white text-xs uppercase tracking-wider font-extrabold px-3.5 py-1 rounded-full shadow-md">
+                MOST POPULAR
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center justify-between mb-4 mt-2">
+                <h3 class="text-xl font-bold text-white">Pro</h3>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-blue-950 text-blue-400 border border-blue-800/50">2-5 Sites</span>
+              </div>
+              <div class="mb-6">
+                <span class="text-4xl font-extrabold text-white">199 AED</span>
+                <span class="text-slate-400 text-sm"> / month</span>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-200 mb-8 border-t border-slate-800/80 pt-6">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Telegram integration
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> 3 groups monitored
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Priority instant alerts
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Weekly summary reports
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Automated expense tracking
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="text-xs text-center text-slate-400 mb-3">7-day free trial, no credit card required</div>
+              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg shadow-md shadow-blue-600/30 transition-all hover:scale-[1.02]">
+                Start Free Trial
+              </a>
+            </div>
+          </div>
+
+          <!-- Business Tier -->
+          <div class="bg-[#0F172A] border border-slate-800 rounded-2xl p-7 flex flex-col justify-between hover:border-slate-700 transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-white">Business</h3>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-slate-800 text-slate-300">WhatsApp Native</span>
+              </div>
+              <div class="mb-6">
+                <span class="text-4xl font-extrabold text-white">299 AED</span>
+                <span class="text-slate-400 text-sm"> / month</span>
+              </div>
+              <ul class="space-y-3.5 text-sm text-slate-300 mb-8 border-t border-slate-800/80 pt-6">
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> WhatsApp integration
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> 3 groups included
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> All features & summaries
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Dedicated support via WhatsApp
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="text-blue-400 font-bold">✓</span> Custom alerts configuration
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="text-xs text-center text-slate-400 mb-3">7-day free trial, no credit card required</div>
+              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+                Start Free Trial
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ (accordion style, 4 questions) -->
+    <section id="faq" class="py-20 sm:py-24 bg-[#0B1120]">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="text-xs uppercase font-bold tracking-widest text-blue-400 mb-2">Got Questions?</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion">
+          <!-- Item 1 -->
+          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+              <span>Does my team need to install anything?</span>
+              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+              No. The bot joins your existing group. They keep writing exactly as they do now.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+              <span>What languages does it understand?</span>
+              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+              English, Arabic, Hindi, Urdu, Tagalog, Malayalam, and mixed messages.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+              <span>Is my data secure?</span>
+              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+              All data is encrypted and stored securely. We never share your site information.
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item bg-[#0F172A] border border-slate-800 rounded-xl overflow-hidden transition-colors">
+            <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-base font-semibold text-white focus:outline-none cursor-pointer">
+              <span>Can I try before paying?</span>
+              <span class="faq-icon text-blue-400 text-lg transition-transform duration-200">＋</span>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+              Yes, 7-day free trial with full features. No credit card needed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FINAL CTA -->
+    <section class="py-20 sm:py-24 bg-[#070B14] border-t border-slate-800/80 relative overflow-hidden text-center">
+      <!-- Glow background -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-64 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+          Stop missing what matters on your site.
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-8">
+          Join MEP and fit-out contractors across Dubai who stay in control without spending hours reading chats.
+        </p>
+
+        <div class="inline-block">
+          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition-all hover:scale-105 active:scale-95">
+            <span>💬</span> Start Your Free Trial
+          </a>
+          <p class="text-xs text-slate-400 mt-3">
+            Setup takes 2 minutes. No credit card required.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="bg-[#05080F] border-t border-slate-800/80 py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <!-- Logo & Tagline -->
+          <div class="flex flex-col items-center md:items-start gap-1">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded bg-blue-600 flex items-center justify-center text-sm">🏗️</span>
+              <span class="text-lg font-bold text-white tracking-tight">SiteSmart</span>
+            </div>
+            <p class="text-xs text-slate-400">Built for UAE construction teams</p>
+          </div>
+
+          <!-- Contact Email -->
+          <div class="text-sm text-slate-300">
+            <span class="text-slate-500">Contact: </span>
+            <a href="mailto:hello@sitesmart.ai" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">hello@sitesmart.ai</a>
+          </div>
+
+          <!-- Copyright -->
+          <div class="text-xs text-slate-500">
+            © 2026 SiteSmart. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Vanilla JavaScript for FAQ Accordion & Mobile Menu -->
+    <script>
+      // FAQ Accordion functionality
+      document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('.faq-icon');
+          const isExpanded = !content.classList.contains('hidden');
+
+          // Close all other accordion items
+          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+          document.querySelectorAll('.faq-icon').forEach(i => {
+            i.textContent = '＋';
+            i.classList.remove('rotate-45');
+          });
+
+          // If was not open, open this one
+          if (!isExpanded) {
+            content.classList.remove('hidden');
+            icon.textContent = '✕';
+          }
+        });
+      });
+
+      // Mobile Menu functionality
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            menuIcon.textContent = '✕';
+          } else {
+            mobileMenu.classList.add('hidden');
+            menuIcon.textContent = '☰';
+          }
+        });
+
+        // Close mobile menu on clicking any link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.textContent = '☰';
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "SiteSmart - AI Site Intelligence for UAE Construction",
+  "description": "SiteSmart reads every message in your site WhatsApp and Telegram group, detects emergencies instantly, and delivers daily summaries at 6 PM.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
