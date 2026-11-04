@@ -35,17 +35,6 @@
                 light: '#3B82F6',
                 subtle: 'rgba(37, 99, 235, 0.12)',
               },
-              wa: {
-                bg: '#0B141A',
-                header: '#202C33',
-                panel: '#111B21',
-                incoming: '#182229',
-                outgoing: '#005C4B',
-                border: '#2A3942',
-                accent: '#10B981',
-                textMuted: '#8696A0',
-                textLight: '#E9EDEF',
-              }
             },
             fontFamily: {
               sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
@@ -70,37 +59,6 @@
       }
       .hairline-border-strong {
         border: 1px solid rgba(255, 255, 255, 0.15);
-      }
-
-      /* Custom scrollbar for simulator */
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 5px;
-      }
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: #0B141A;
-      }
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #202C33;
-        border-radius: 4px;
-      }
-
-      /* OCR Laser scan animation */
-      @keyframes laserScan {
-        0% { top: 0%; opacity: 0.9; }
-        50% { top: 95%; opacity: 1; }
-        100% { top: 0%; opacity: 0.9; }
-      }
-      .scan-beam {
-        animation: laserScan 1.6s ease-in-out infinite;
-      }
-
-      /* Subtle pulse */
-      @keyframes softPulse {
-        0%, 100% { opacity: 0.8; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.05); }
-      }
-      .soft-pulse {
-        animation: softPulse 2s ease-in-out infinite;
       }
     </style>
   </head>
@@ -129,10 +87,6 @@
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
           <a href="#demo-video" class="hover:text-white transition-colors">Video</a>
-          <a href="#simulator" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            Live Simulator
-          </a>
           <a href="#how-it-works" class="hover:text-white transition-colors">How it works</a>
           <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
           <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
@@ -140,8 +94,11 @@
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-3">
-          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider px-4 py-2.5 rounded-md shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-400">
-            Start Free Trial
+          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-md shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-[#25D366]">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+            </svg>
+            <span>Start Free Trial</span>
           </a>
         </div>
 
@@ -157,29 +114,44 @@
 
       <!-- Mobile Dropdown Menu -->
       <div id="mobile-menu" class="hidden md:hidden border-b border-white/[0.08] bg-[#0E131F] px-4 pt-3 pb-5 space-y-2">
-        <a href="#demo-video" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">Demo Video (45s)</a>
-        <a href="#simulator" class="block text-emerald-400 hover:text-emerald-300 text-sm font-medium py-2 mobile-link">WhatsApp Live Simulator</a>
+        <a href="#demo-video" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">Product Video</a>
         <a href="#how-it-works" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">How it works</a>
         <a href="#pricing" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">Pricing</a>
         <a href="#faq" class="block text-slate-300 hover:text-white text-sm font-medium py-2 mobile-link">FAQ</a>
         <div class="pt-2">
-          <a href="https://wa.me/971XXXXXXXX" class="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider py-2.5 rounded-md transition-colors">
-            Start Free Trial
+          <a href="https://wa.me/971XXXXXXXX" class="flex items-center justify-center gap-2 w-full text-center bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] text-xs font-bold uppercase tracking-wider py-2.5 rounded-md transition-colors">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+            </svg>
+            <span>Start Free Trial</span>
           </a>
         </div>
       </div>
     </header>
 
-    <!-- 2. HERO SECTION WITH 45s DEMO VIDEO -->
+    <!-- 2. HERO SECTION -->
     <section class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
       <!-- Subtle Radial Illumination -->
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none"></div>
 
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <!-- Trust Label -->
-        <div class="inline-flex items-center gap-2 text-xs font-medium text-slate-400 mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-          <span>Engineered for MEP & Fit-Out Subcontractors in Dubai</span>
+        <!-- Platform Badges & Trust Label -->
+        <div class="inline-flex flex-wrap items-center justify-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.09] text-xs font-medium text-slate-300 mb-6 shadow-sm">
+          <span class="flex items-center gap-1.5 font-semibold text-[#25D366]">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+            </svg>
+            WhatsApp
+          </span>
+          <span class="text-slate-600 font-normal">&</span>
+          <span class="flex items-center gap-1.5 font-semibold text-[#229ED9]">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+            Telegram
+          </span>
+          <span class="text-slate-500 font-normal">|</span>
+          <span class="text-slate-300">Engineered for MEP & Fit-Out Subcontractors in Dubai</span>
         </div>
 
         <!-- Headline -->
@@ -193,20 +165,28 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-14">
-          <a href="https://wa.me/971XXXXXXXX" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-6 py-3.5 rounded-md shadow-sm transition-all focus:outline-none">
-            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-2">
+          <a href="https://wa.me/971XXXXXXXX" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] font-bold text-sm px-7 py-3.5 rounded-md shadow-lg shadow-emerald-950/40 transition-all focus:outline-none">
+            <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
             </svg>
-            <span>Start Free Trial</span>
+            <span>Start Free Trial on WhatsApp</span>
           </a>
-          <a href="#simulator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600/15 hover:bg-emerald-600/25 border border-emerald-500/30 text-emerald-300 hover:text-emerald-200 font-semibold text-sm px-6 py-3.5 rounded-md transition-all">
-            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          <a href="https://t.me/SiteSmartBot" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-all">
+            <svg class="w-4 h-4 fill-current text-[#229ED9] shrink-0" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
             </svg>
-            <span>Try Live Simulator</span>
+            <span>Or Connect on Telegram</span>
+          </a>
+          <a href="#how-it-works" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-slate-400 hover:text-white font-medium text-xs px-4 py-3.5 transition-colors">
+            <span>See How It Works ↓</span>
           </a>
         </div>
+
+        <!-- Block A: Under Hero CTA -->
+        <p class="mt-2 mb-14 text-xs text-slate-400">
+          ⚡ Setup takes 30 seconds. Opens direct WhatsApp chat with setup team. No credit card required.
+        </p>
 
         <!-- PRODUCT VIDEO PLAYER (Target: presentation.mp4) -->
         <div id="demo-video" class="max-w-3xl mx-auto text-left">
@@ -246,7 +226,7 @@
                 </div>
                 <div class="text-sm font-bold text-white mb-1 font-mono">presentation.mp4</div>
                 <p class="text-xs text-slate-300 max-w-sm leading-relaxed mb-3">
-                  Place your video file named <strong class="text-blue-400 font-mono">presentation.mp4</strong> in the project root directory.
+                  Place your video file named <strong class="text-blue-400 font-mono">presentation.mp4</strong> in the project root directory or public folder.
                 </p>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-300">
                   <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
@@ -266,15 +246,24 @@
     <!-- 3. PROOF BANNER -->
     <section class="py-6 bg-[#0B0F19] border-y border-white/[0.06]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap items-center justify-around gap-4 text-xs sm:text-sm font-medium text-slate-300 text-center">
+        <div class="flex flex-wrap items-center justify-around gap-5 text-xs sm:text-sm font-medium text-slate-300 text-center">
           <div class="flex items-center gap-2">
             <span class="text-blue-400 font-mono font-bold">✓</span>
             <span><strong>0 Apps</strong> to install</span>
           </div>
           <div class="hidden sm:block text-slate-600">·</div>
-          <div class="flex items-center gap-2">
-            <span class="text-emerald-400 font-mono font-bold">✓</span>
-            <span><strong>100% WhatsApp</strong> & Telegram</span>
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#25D366]/20 text-[#25D366]">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+              </svg>
+            </span>
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#229ED9]/20 text-[#229ED9]">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+            </span>
+            <span><strong>100% Native WhatsApp & Telegram</strong></span>
           </div>
           <div class="hidden sm:block text-slate-600">·</div>
           <div class="flex items-center gap-2">
@@ -290,152 +279,8 @@
       </div>
     </section>
 
-    <!-- 4. 🎮 SECTION INTERACTIVE SIMULATOR ("Try It Live") -->
-    <section id="simulator" class="py-24 bg-[#07090E] relative overflow-hidden">
-      <!-- Glow background -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-emerald-600/[0.04] rounded-full blur-[160px] pointer-events-none"></div>
-
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono font-semibold text-emerald-400 mb-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            LIVE WHATSAPP SIMULATOR
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
-            Test SiteSmart Live in 1 Click
-          </h2>
-          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Test how the AI instantly processes real site messages (urgent hazards, multilingual voice notes, scanned delivery slips). Type your own message or click a demo scenario below:
-          </p>
-        </div>
-
-        <!-- Quick Prompts Buttons (3 Demands + Scanner Invoice OCR) -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-6 max-w-4xl mx-auto">
-          <!-- Button 1: Water Leak Hazard -->
-          <button id="prompt-leak" class="flex items-center justify-center gap-2 p-3 rounded-lg bg-[#0F1522] hairline-border hover:border-red-500/60 text-slate-200 hover:text-white text-xs font-semibold transition-all group active:scale-95 text-left">
-            <span class="text-base shrink-0">🚨</span>
-            <span class="leading-tight">Water Leak Hazard<br><span class="text-[10px] text-red-400 font-mono font-normal">Critical P1 Alert</span></span>
-          </button>
-
-          <!-- Button 2: Cement Shortage (Hindi) -->
-          <button id="prompt-hindi" class="flex items-center justify-center gap-2 p-3 rounded-lg bg-[#0F1522] hairline-border hover:border-amber-500/60 text-slate-200 hover:text-white text-xs font-semibold transition-all group active:scale-95 text-left">
-            <span class="text-base shrink-0">🇮🇳</span>
-            <span class="leading-tight">Cement Shortage<br><span class="text-[10px] text-amber-400 font-mono font-normal">Hindi ➔ Translated</span></span>
-          </button>
-
-          <!-- Button 3: Material Arrival (Arabic) -->
-          <button id="prompt-arabic" class="flex items-center justify-center gap-2 p-3 rounded-lg bg-[#0F1522] hairline-border hover:border-emerald-500/60 text-slate-200 hover:text-white text-xs font-semibold transition-all group active:scale-95 text-left">
-            <span class="text-base shrink-0">🇦🇪</span>
-            <span class="leading-tight">Material Arrival<br><span class="text-[10px] text-emerald-400 font-mono font-normal">Arabic ➔ Inventory</span></span>
-          </button>
-
-          <!-- Button 4: Simulate Invoice OCR -->
-          <button id="prompt-invoice" class="flex items-center justify-center gap-2 p-3 rounded-lg bg-[#0F1522] hairline-border hover:border-blue-500/60 text-slate-200 hover:text-white text-xs font-semibold transition-all group active:scale-95 text-left">
-            <span class="text-base shrink-0">📄</span>
-            <span class="leading-tight">Simulate Invoice<br><span class="text-[10px] text-blue-400 font-mono font-normal">Laser OCR Scan</span></span>
-          </button>
-        </div>
-
-        <!-- 100% Responsive WhatsApp Container -->
-        <div class="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-[#2A3942] bg-[#0B141A]">
-          
-          <!-- WhatsApp Header -->
-          <div class="bg-[#202C33] px-4 py-3 border-b border-[#2A3942] flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <!-- Group Avatar -->
-              <div class="w-10 h-10 rounded-full bg-[#111B21] border border-[#2A3942] flex items-center justify-center text-emerald-400 text-lg relative">
-                🏗️
-                <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#202C33]"></span>
-              </div>
-              <!-- Group Info -->
-              <div>
-                <div class="text-sm font-semibold text-[#E9EDEF] flex items-center gap-2">
-                  Tower B - Marasi Site Group
-                  <span class="text-[9px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded border border-emerald-500/30">SiteSmart AI Bot Active</span>
-                </div>
-                <div class="text-[11px] text-[#8696A0] truncate max-w-[240px] sm:max-w-xs">
-                  Ahmed (MEP), Rajesh (Civil), Site Director, Bot...
-                </div>
-              </div>
-            </div>
-
-            <!-- Controls (Audio Synth Toggle + Indicator) -->
-            <div class="flex items-center gap-2">
-              <button id="audio-toggle-btn" class="p-1.5 rounded text-[#8696A0] hover:text-white bg-[#111B21] border border-[#2A3942] text-xs flex items-center gap-1" title="Mute / Unmute WebAudio sound effects">
-                <span id="audio-icon">🔊</span>
-                <span class="text-[10px] font-mono hidden sm:inline">WebAudio Sounds</span>
-              </button>
-              <button id="clear-chat-btn" class="text-xs text-[#8696A0] hover:text-white p-1.5" title="Clear chat history">
-                ↺
-              </button>
-            </div>
-          </div>
-
-          <!-- Chat Stream Area (WhatsApp Dark Mode) -->
-          <div id="chat-messages" class="h-[400px] overflow-y-auto p-4 space-y-3.5 custom-scrollbar bg-[#0B141A] relative" style="background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0); background-size: 24px 24px;">
-            
-            <!-- Encryption system notice -->
-            <div class="text-center">
-              <span class="bg-[#182229] text-[#8696A0] text-[10px] font-mono px-3 py-1 rounded-md inline-block shadow-sm">
-                🔒 End-to-end encrypted messages • SiteSmart Bot configured for Dubai time (GST)
-              </span>
-            </div>
-
-            <!-- Initial Welcome Message from SiteSmart Bot -->
-            <div class="flex justify-start">
-              <div class="max-w-[85%] bg-[#182229] border border-emerald-500/30 rounded-lg p-3 text-xs text-[#E9EDEF] shadow-sm">
-                <div class="text-[10px] font-mono text-emerald-400 font-bold mb-1 flex items-center justify-between">
-                  <span>🤖 SiteSmart AI Bot</span>
-                  <span class="text-[#8696A0]">14:00</span>
-                </div>
-                <p class="leading-relaxed">
-                  Hello! I monitor this construction site group 24/7. Send any message (text, hazard, delivery, expense) or test the 4 scenarios above.
-                </p>
-              </div>
-            </div>
-
-            <!-- Container where dynamic messages will be appended -->
-            <div id="dynamic-messages" class="space-y-3"></div>
-
-            <!-- Typing indicator (hidden by default) -->
-            <div id="typing-indicator" class="hidden flex justify-start">
-              <div class="bg-[#182229] border border-[#2A3942] rounded-lg px-3 py-2 text-xs text-[#8696A0] flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce [animation-delay:0.2s]"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce [animation-delay:0.4s]"></span>
-                <span class="text-[11px] font-mono ml-1">SiteSmart is analyzing...</span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- WhatsApp Chat Input Bar -->
-          <div class="bg-[#202C33] p-2.5 border-t border-[#2A3942] flex items-center gap-2">
-            <input 
-              id="chat-input" 
-              type="text" 
-              placeholder="Type any site message (e.g. Water leak Floor 3, Bought fittings 150 AED)..." 
-              class="flex-1 bg-[#2A3942] text-[#E9EDEF] placeholder-[#8696A0] text-xs sm:text-sm px-4 py-2.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
-            />
-            <button 
-              id="chat-send-btn" 
-              class="w-10 h-10 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center transition-all focus:outline-none shrink-0" 
-              aria-label="Send message"
-            >
-              <svg class="w-4 h-4 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-              </svg>
-            </button>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 5. PROBLEM SECTION (dark background) -->
-    <section class="py-24 bg-[#06080E] border-y border-white/[0.06]">
+    <!-- 4. PROBLEM SECTION (dark background) -->
+    <section class="py-24 bg-[#06080E] border-b border-white/[0.06]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mb-16">
           <div class="text-xs uppercase font-mono font-semibold tracking-wider text-blue-400 mb-2">Operational Bottlenecks</div>
@@ -517,7 +362,7 @@
       </div>
     </section>
 
-    <!-- 6. HOW IT WORKS (3 steps) -->
+    <!-- 5. HOW IT WORKS (3 steps + Reassuring Test Callout) -->
     <section id="how-it-works" class="py-24 bg-[#080B11]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mb-16">
@@ -537,9 +382,18 @@
               <span class="text-xs font-mono font-semibold text-blue-400 px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20">
                 01
               </span>
-              <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.765z" />
-              </svg>
+              <div class="flex items-center gap-1.5">
+                <span class="w-6 h-6 rounded bg-[#25D366]/20 border border-[#25D366]/40 flex items-center justify-center text-[#25D366]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+                  </svg>
+                </span>
+                <span class="w-6 h-6 rounded bg-[#229ED9]/20 border border-[#229ED9]/40 flex items-center justify-center text-[#229ED9]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                  </svg>
+                </span>
+              </div>
             </div>
             <h3 class="text-lg font-bold text-white mb-2">
               Add the bot to your group
@@ -585,10 +439,173 @@
             </p>
           </div>
         </div>
+
+        <!-- REASSURING TEST CALLOUT BOX -->
+        <div class="mt-14 max-w-3xl mx-auto rounded-xl bg-gradient-to-r from-blue-950/40 via-[#0F172A] to-blue-950/20 border border-blue-500/30 p-6 sm:p-7 text-left shadow-lg">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-[#25D366]/20 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white mb-1.5 flex items-center gap-2">
+                  <span>Want to test before connecting your real site?</span>
+                </h4>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                  Create a private 2-minute test group on WhatsApp, invite the bot, and send fake messages, voice notes, or delivery receipts to see how instant alerts and the 6 PM summary work in real time.
+                </p>
+              </div>
+            </div>
+            <a href="https://wa.me/971XXXXXXXX?text=Hi%20SiteSmart,%20I%20want%20to%20test%20in%20a%20sandbox%20group" class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+              </svg>
+              <span>Test on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- 7. FEATURES GRID (2x3) -->
+    <!-- 5.5. DEMO SECTION: What You'll Receive Every Evening -->
+    <section class="py-20 bg-[#06080E] border-t border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-mono font-medium text-blue-400 mb-3">
+            <span>⚡ Automated Daily Dispatch at 18:00 GST</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            What You'll Receive Every Evening
+          </h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
+            Delivered straight to your personal WhatsApp or Telegram DM. Clean, formatted intelligence with zero noise.
+          </p>
+        </div>
+
+        <!-- Realistic Message Mockup Card -->
+        <div class="max-w-2xl mx-auto">
+          <!-- Platform Tabs (WhatsApp & Telegram) -->
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <button id="view-whatsapp-tab" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all bg-[#25D366]/20 border border-[#25D366]/50 text-[#25D366] cursor-pointer">
+              <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+              <span>WhatsApp Preview</span>
+            </button>
+            <button id="view-telegram-tab" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all bg-white/[0.04] border border-white/[0.08] text-slate-300 hover:text-white cursor-pointer">
+              <svg class="w-4 h-4 fill-current text-[#229ED9] shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              <span>Telegram Preview</span>
+            </button>
+          </div>
+
+          <!-- Phone Screen Container -->
+          <div class="rounded-2xl border border-white/[0.12] bg-[#0B141A] shadow-2xl overflow-hidden transition-all" id="chat-mockup-frame">
+            <!-- App Bar Header -->
+            <div id="chat-mockup-header" class="flex items-center justify-between px-4 py-3 bg-[#1F2C34] border-b border-white/[0.08]">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-blue-400 font-bold text-xs">
+                  SS
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-sm font-bold text-white tracking-tight" id="chat-sender-name">SiteSmart Private Bot</span>
+                    <span class="text-[#25D366] text-xs" title="Verified AI Bot">✓</span>
+                  </div>
+                  <div class="text-[11px] text-slate-400 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                    <span>Direct DM · 100% Confidential</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span id="platform-indicator-badge" class="px-2.5 py-1 rounded bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-[11px] font-mono font-bold flex items-center gap-1">
+                  WhatsApp DM
+                </span>
+              </div>
+            </div>
+
+            <!-- Message Area -->
+            <div class="p-4 sm:p-6 bg-[#0B141A] space-y-4">
+              <!-- Date Divider -->
+              <div class="flex justify-center">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.08]">
+                  Today · 18:00 GST
+                </span>
+              </div>
+
+              <!-- Message Bubble -->
+              <div class="max-w-xl mx-auto rounded-xl p-5 bg-[#1F2C34] border border-white/[0.1] text-slate-200 text-xs sm:text-sm font-sans shadow-lg leading-relaxed relative">
+                <!-- Message Body -->
+                <div class="font-mono text-sm font-bold text-white mb-2.5 pb-2 border-b border-white/[0.08] flex items-center justify-between">
+                  <span>📊 Overview — 02/11/2026 — 18 messages</span>
+                  <span class="text-[11px] text-blue-400 font-normal">Tower B · Dubai Marina</span>
+                </div>
+
+                <div class="space-y-2.5 font-normal">
+                  <div class="flex items-start gap-2.5">
+                    <span class="shrink-0 text-base">🚨</span>
+                    <div>
+                      <strong class="text-red-400 font-semibold">Problems:</strong> Water leak in DB room touching main panel. Foremen shut valve at 14:15.
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <span class="shrink-0 text-base">📦</span>
+                    <div>
+                      <strong class="text-amber-300 font-semibold">Deliveries:</strong> 50m cable 4mm delivered to Floor 3 (received by Eng. Rashid).
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <span class="shrink-0 text-base">💰</span>
+                    <div>
+                      <strong class="text-emerald-400 font-semibold">Expenses:</strong> 785 AED total (3 cash receipts scanned via OCR from foremen).
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <span class="shrink-0 text-base">🔧</span>
+                    <div>
+                      <strong class="text-blue-400 font-semibold">Progress:</strong> Ducting on Floor 2 completed (85%). Pressure test cleared.
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-2.5">
+                    <span class="shrink-0 text-base">⚠️</span>
+                    <div>
+                      <strong class="text-orange-400 font-semibold">Next Day Risks:</strong> MEP inspection scheduled at 10 AM, need civil defense clearance on site.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer Timestamp & Checkmarks -->
+                <div class="mt-4 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400 font-mono">
+                  <span>Automated AI synthesis</span>
+                  <div class="flex items-center gap-1.5 text-blue-400 font-bold">
+                    <span>18:00</span>
+                    <span class="text-[#25D366]">✓✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Bar with Direct Action -->
+            <div class="px-5 py-3.5 bg-[#121B22] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                <span>Configured to your project's specific timezone (GST)</span>
+              </span>
+              <a href="https://wa.me/971XXXXXXXX?text=Hi%20SiteSmart,%20send%20me%20a%20sample%20report" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline">
+                <span>Receive a live sample on WhatsApp →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FEATURES GRID (Core Capabilities with 100% Silent Operation) -->
     <section class="py-24 bg-[#080B11] border-t border-white/[0.06]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mb-16">
@@ -601,8 +618,20 @@
           </p>
         </div>
 
-        <!-- 2x3 Grid with Clean Architectural SVG Icons -->
+        <!-- Grid with Clean Architectural Cards + Silent Operation Card -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Block B: 100% Silent in Group (Highlighted Card) -->
+          <div class="bg-[#0E1524] border border-blue-500/40 p-7 rounded-xl hover:border-blue-400/60 transition-colors shadow-md">
+            <div class="w-10 h-10 rounded-md bg-blue-600/20 border border-blue-500/40 text-blue-400 flex items-center justify-center mb-5 text-xl">
+              🤫
+            </div>
+            <h3 class="text-base font-bold text-white mb-2">100% Silent in Group</h3>
+            <p class="font-normal text-slate-300 text-sm leading-relaxed">
+              The bot listens silently. It NEVER posts or interrupts your site group chat. Only sends private DMs to project directors.
+            </p>
+          </div>
+
           <!-- 1. Multi-language -->
           <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
             <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
@@ -680,22 +709,29 @@
 
           <!-- 6. Telegram + WhatsApp support -->
           <div class="bg-[#0E131F] hairline-border p-7 rounded-xl hover:border-white/20 transition-colors">
-            <div class="w-10 h-10 rounded-md bg-white/[0.04] border border-white/[0.08] text-slate-300 flex items-center justify-center mb-5">
-              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.75">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
+            <div class="flex items-center gap-2 mb-5">
+              <div class="w-10 h-10 rounded-md bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] flex items-center justify-center">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/>
+                </svg>
+              </div>
+              <div class="w-10 h-10 rounded-md bg-[#229ED9]/20 border border-[#229ED9]/40 text-[#229ED9] flex items-center justify-center">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                </svg>
+              </div>
             </div>
             <h3 class="text-base font-bold text-white mb-2">Telegram + WhatsApp support</h3>
             <p class="text-slate-400 text-sm leading-relaxed">
               Dual-platform integration for the primary messaging services across Gulf contracting networks. Real-time webhook architecture with zero lag.
             </p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 8. PRICING (3 tiers) -->
+    <!-- 7. PRICING (3 tiers with Block A Note) -->
     <section id="pricing" class="py-24 bg-[#06080E] border-y border-white/[0.06]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mb-16">
@@ -722,7 +758,10 @@
               </div>
               <ul class="space-y-3 text-sm text-slate-300 mb-8 border-t border-white/[0.06] pt-6 font-normal">
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-mono text-xs">✓</span> Telegram
+                  <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#229ED9]/20 text-[#229ED9] shrink-0">
+                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                  </span>
+                  <span class="font-semibold text-white">Telegram</span> integration
                 </li>
                 <li class="flex items-center gap-2.5">
                   <span class="text-blue-400 font-mono text-xs">✓</span> 1 group
@@ -737,9 +776,14 @@
             </div>
             <div>
               <div class="text-[11px] text-center text-slate-400 mb-3 font-mono">7-day free trial, no credit card required</div>
-              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md transition-colors">
-                Start Free Trial
+              <a href="https://t.me/SiteSmartBot" class="w-full inline-flex items-center justify-center gap-2 hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md transition-colors">
+                <svg class="w-3.5 h-3.5 fill-current text-[#229ED9]" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span>Try on Telegram</span>
               </a>
+              <!-- Block A: Under Pricing CTA -->
+              <p class="mt-2 text-[11px] text-slate-400 text-center leading-normal">
+                ⚡ Setup takes 30 seconds. Opens direct Telegram chat with setup team. No credit card required.
+              </p>
             </div>
           </div>
 
@@ -761,7 +805,10 @@
               </div>
               <ul class="space-y-3 text-sm text-slate-200 mb-8 border-t border-white/[0.08] pt-6 font-normal">
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-mono text-xs">✓</span> Telegram
+                  <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#229ED9]/20 text-[#229ED9] shrink-0">
+                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                  </span>
+                  <span class="font-semibold text-white">Telegram</span> full access
                 </li>
                 <li class="flex items-center gap-2.5">
                   <span class="text-blue-400 font-mono text-xs">✓</span> 3 groups
@@ -779,18 +826,30 @@
             </div>
             <div>
               <div class="text-[11px] text-center text-slate-400 mb-3 font-mono">7-day free trial, no credit card required</div>
-              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md shadow-sm transition-all focus:outline-none">
-                Start Free Trial
+              <a href="https://wa.me/971XXXXXXXX?text=Hi%20SiteSmart,%20I%20am%20interested%20in%20the%20Pro%20plan" class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md shadow-sm transition-all focus:outline-none">
+                <span>Start Free Trial</span>
               </a>
+              <!-- Block A: Under Pricing CTA -->
+              <p class="mt-2 text-[11px] text-slate-400 text-center leading-normal">
+                ⚡ Setup takes 30 seconds. Opens direct WhatsApp chat with setup team. No credit card required.
+              </p>
             </div>
           </div>
 
           <!-- Business Tier -->
-          <div class="bg-[#0B0F19] hairline-border rounded-xl p-7 flex flex-col justify-between hover:border-white/20 transition-colors">
+          <div class="bg-[#0E1524] border border-[#25D366]/50 rounded-xl p-7 flex flex-col justify-between hover:border-[#25D366] transition-colors relative shadow-lg shadow-emerald-950/20">
+            <div class="absolute -top-3 left-7">
+              <span class="bg-[#25D366] text-[#07090E] text-[10px] uppercase font-mono tracking-widest font-extrabold px-2.5 py-0.5 rounded shadow-sm flex items-center gap-1">
+                <svg class="w-3 h-3 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+                WHATSAPP NATIVE
+              </span>
+            </div>
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-lg font-bold text-white">Business</h3>
-                <span class="text-xs font-mono text-slate-400">WhatsApp native</span>
+              <div class="flex items-center justify-between mb-4 mt-1">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>Business</span>
+                </h3>
+                <span class="text-xs font-mono text-[#25D366] font-semibold">Official WhatsApp</span>
               </div>
               <div class="mb-6">
                 <span class="text-3xl font-extrabold text-white font-mono">299 AED</span>
@@ -798,31 +857,39 @@
               </div>
               <ul class="space-y-3 text-sm text-slate-300 mb-8 border-t border-white/[0.06] pt-6 font-normal">
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-mono text-xs">✓</span> WhatsApp
+                  <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#25D366]/20 text-[#25D366] shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+                  </span>
+                  <span class="font-bold text-[#25D366]">100% Native WhatsApp</span>
                 </li>
                 <li class="flex items-center gap-2.5">
                   <span class="text-blue-400 font-mono text-xs">✓</span> 3 groups
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-mono text-xs">✓</span> All features
+                  <span class="text-blue-400 font-mono text-xs">✓</span> All features & OCR receipt scanning
                 </li>
                 <li class="flex items-center gap-2.5">
-                  <span class="text-blue-400 font-mono text-xs">✓</span> Dedicated support
+                  <span class="text-blue-400 font-mono text-xs">✓</span> Dedicated WhatsApp support manager
                 </li>
               </ul>
             </div>
             <div>
               <div class="text-[11px] text-center text-slate-400 mb-3 font-mono">7-day free trial, no credit card required</div>
-              <a href="https://wa.me/971XXXXXXXX" class="w-full inline-flex items-center justify-center hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-white text-xs font-semibold uppercase tracking-wider py-3 px-4 rounded-md transition-colors">
-                Start Free Trial
+              <a href="https://wa.me/971XXXXXXXX?text=Hi%20SiteSmart,%20I%20want%20to%20start%20the%20Business%20plan%20free%20trial" class="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-md shadow-lg shadow-emerald-950/30 transition-all">
+                <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+                <span>Start Free Trial on WhatsApp</span>
               </a>
+              <!-- Block A: Under Pricing CTA -->
+              <p class="mt-2 text-[11px] text-slate-400 text-center leading-normal">
+                ⚡ Setup takes 30 seconds. Opens direct WhatsApp chat with setup team. No credit card required.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 9. FAQ & FOOTER -->
+    <!-- 8. FAQ (Block C: 4 Essential Questions) -->
     <section id="faq" class="py-24 bg-[#080B11]">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-14">
@@ -842,53 +909,53 @@
               </svg>
             </button>
             <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
-              No. The bot joins your existing group. They keep writing exactly as they do now.
+              No. You simply add the SiteSmart number to your existing WhatsApp group chat. Your team communicates exactly as they do today.
             </div>
           </div>
 
           <!-- Question 2 -->
           <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
             <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
-              <span>What languages does it understand?</span>
+              <span>Will the bot post messages in our group?</span>
               <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </button>
             <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
-              English, Arabic, Hindi, Urdu, Tagalog, Malayalam, and mixed messages.
+              Never. SiteSmart operates 100% silently. It only dispatches private DMs to business owners and authorized managers.
             </div>
           </div>
 
           <!-- Question 3 -->
           <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
             <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
-              <span>Is my data secure?</span>
+              <span>What languages does it process?</span>
               <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </button>
             <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
-              All data is encrypted and stored securely. We never share your site information.
+              English, Arabic, Hindi, Urdu, Tagalog, and Malayalam — including voice notes and photos of handwritten delivery notes.
             </div>
           </div>
 
           <!-- Question 4 -->
           <div class="faq-item bg-[#0E131F] hairline-border rounded-lg overflow-hidden transition-colors">
             <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white focus:outline-none cursor-pointer">
-              <span>Can I try before paying?</span>
+              <span>Is my site financial data and invoice data secure?</span>
               <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
             </button>
             <div class="faq-content hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] pt-3">
-              Yes, 7-day free trial with full features. No credit card needed.
+              Yes. All data is encrypted in transit and at rest. We never share site data or train external AI models on your private messages.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- 9. FINAL CTA -->
     <section class="py-20 sm:py-24 bg-[#06080E] border-t border-white/[0.06] text-center">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4" style="text-wrap: balance;">
@@ -898,21 +965,23 @@
           Operational control delivered to your phone every evening at 18:00 GST.
         </p>
 
-        <div class="inline-block">
-          <a href="https://wa.me/971XXXXXXXX" class="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm uppercase tracking-wider px-8 py-4 rounded-md shadow-sm transition-all focus:outline-none">
-            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <span>Start Your Free Trial</span>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-2">
+          <a href="https://wa.me/971XXXXXXXX" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-md shadow-lg shadow-emerald-950/40 transition-all focus:outline-none">
+            <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.002.597 1.777.853 2.806.853 3.182 0 5.767-2.587 5.768-5.766.001-3.182-2.585-5.77-5.768-5.77zm3.39 8.175c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.12-.516-1.748-.724-2.88-2.502-2.966-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.044c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1 1.224zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.957-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.63 0-3.15-.494-4.42-1.341l-.317-.212-3.125.877.834-3.042-.207-.329A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+            <span>Start Free Trial on WhatsApp</span>
           </a>
-          <p class="text-xs text-slate-400 mt-3 font-mono">
-            Setup takes 2 minutes. No credit card required.
-          </p>
+          <a href="https://t.me/SiteSmartBot" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 hairline-border bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 hover:text-white font-medium text-sm px-6 py-4 rounded-md transition-all">
+            <svg class="w-4 h-4 fill-current text-[#229ED9] shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            <span>Or Connect on Telegram</span>
+          </a>
         </div>
+        <p class="mt-2 text-xs text-slate-400">
+          ⚡ Setup takes 30 seconds. Opens direct WhatsApp chat with setup team. No credit card required.
+        </p>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- 10. FOOTER -->
     <footer class="bg-[#05060A] border-t border-white/[0.06] py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -943,106 +1012,9 @@
       </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS: 45s Video Demo Player & WhatsApp Simulator -->
+    <!-- JAVASCRIPT: Presentation Video & Accordion -->
     <script>
-      // ==========================================
-      // 1. WEB AUDIO API SYNTHESIZER (NO EXTERNAL MP3)
-      // ==========================================
-      let audioCtx = null;
-      let soundEnabled = true;
-
-      function getAudioContext() {
-        if (!audioCtx) {
-          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-          if (AudioContextClass) {
-            audioCtx = new AudioContextClass();
-          }
-        }
-        if (audioCtx && audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-        return audioCtx;
-      }
-
-      // Outgoing WhatsApp Message Sound (Short organic pitch drop pop)
-      function playSentSound() {
-        if (!soundEnabled) return;
-        const ctx = getAudioContext();
-        if (!ctx) return;
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        const now = ctx.currentTime;
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(750, now);
-        osc.frequency.exponentialRampToValueAtTime(320, now + 0.05);
-
-        gain.gain.setValueAtTime(0.2, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.05);
-      }
-
-      // Incoming Bot Message Sound (Harmonic WhatsApp notification dual-chime)
-      function playReceiveSound(isAlert = false) {
-        if (!soundEnabled) return;
-        const ctx = getAudioContext();
-        if (!ctx) return;
-        const now = ctx.currentTime;
-
-        if (isAlert) {
-          // Sharp Alert Double Blip
-          [0, 0.12].forEach((offset, idx) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(idx === 0 ? 880 : 1046, now + offset);
-            gain.gain.setValueAtTime(0.25, now + offset);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.1);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(now + offset);
-            osc.stop(now + offset + 0.1);
-          });
-        } else {
-          // Standard pleasant confirmation chime (E5 -> A5)
-          const notes = [659.25, 880.00];
-          notes.forEach((freq, idx) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            const start = now + (idx * 0.07);
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, start);
-            gain.gain.setValueAtTime(0.18, start);
-            gain.gain.exponentialRampToValueAtTime(0.001, start + 0.14);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(start);
-            osc.stop(start + 0.14);
-          });
-        }
-      }
-
-      // Sound Toggle Button Handler
-      const audioToggleBtn = document.getElementById('audio-toggle-btn');
-      const audioIcon = document.getElementById('audio-icon');
-      if (audioToggleBtn) {
-        audioToggleBtn.addEventListener('click', () => {
-          soundEnabled = !soundEnabled;
-          audioIcon.textContent = soundEnabled ? '🔊' : '🔇';
-          if (soundEnabled) {
-            playSentSound();
-          }
-        });
-      }
-
-
-      // ==========================================
-      // 2. VIDEO HANDLER (presentation.mp4)
-      // ==========================================
+      // Video Handler for presentation.mp4
       const presVideo = document.getElementById('presentation-video');
       const presOverlay = document.getElementById('video-placeholder-overlay');
 
@@ -1060,246 +1032,7 @@
         presVideo.addEventListener('playing', hideOverlay);
       }
 
-
-      // ==========================================
-      // 3. 💬 WHATSAPP SIMULATOR INTERACTIVE LOGIC
-      // ==========================================
-      const chatMessages = document.getElementById('chat-messages');
-      const dynamicMessages = document.getElementById('dynamic-messages');
-      const chatInput = document.getElementById('chat-input');
-      const chatSendBtn = document.getElementById('chat-send-btn');
-      const typingIndicator = document.getElementById('typing-indicator');
-      const clearChatBtn = document.getElementById('clear-chat-btn');
-
-      function scrollChatToBottom() {
-        if (chatMessages) {
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-      }
-
-      function getCurrentTimeStr() {
-        const d = new Date();
-        const hrs = d.getHours().toString().padStart(2, '0');
-        const min = d.getMinutes().toString().padStart(2, '0');
-        return `${hrs}:${min}`;
-      }
-
-      // Append User message (Green WhatsApp bubble #005C4B)
-      function addUserMessage(contentHtml, isDoc = false) {
-        playSentSound();
-        const wrapper = document.createElement('div');
-        wrapper.className = 'flex justify-end';
-
-        const bubble = document.createElement('div');
-        bubble.className = 'max-w-[85%] bg-[#005C4B] rounded-lg p-3 text-xs text-[#E9EDEF] shadow-sm space-y-1.5';
-        bubble.innerHTML = `
-          <div class="flex items-center justify-between gap-4 text-[10px] text-emerald-200">
-            <span class="font-semibold">Site Engineer</span>
-            <span class="font-mono">${getCurrentTimeStr()}</span>
-          </div>
-          <div>${contentHtml}</div>
-          <div class="text-right text-[10px] text-emerald-300 font-mono">✓✓</div>
-        `;
-
-        wrapper.appendChild(bubble);
-        dynamicMessages.appendChild(wrapper);
-        scrollChatToBottom();
-      }
-
-      // Append Bot message (Dark bubble #182229 with emerald border #10B981)
-      function addBotMessage(contentHtml, isCritical = false) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'flex justify-start';
-
-        const bubble = document.createElement('div');
-        const borderClass = isCritical ? 'border-red-500/80 bg-red-950/20' : 'border-[#10B981]/50 bg-[#182229]';
-        bubble.className = `max-w-[88%] border ${borderClass} rounded-lg p-3.5 text-xs text-[#E9EDEF] shadow-md space-y-2`;
-        
-        const badgeTitle = isCritical ? '🚨 CRITICAL P1 ALERT' : '🤖 SiteSmart AI Bot';
-        const badgeColor = isCritical ? 'text-red-400' : 'text-emerald-400';
-
-        bubble.innerHTML = `
-          <div class="text-[10px] font-mono ${badgeColor} font-bold flex items-center justify-between border-b border-white/[0.06] pb-1.5">
-            <span class="flex items-center gap-1.5">
-              ${isCritical ? '<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>' : ''}
-              ${badgeTitle}
-            </span>
-            <span class="text-[#8696A0] font-normal">${getCurrentTimeStr()}</span>
-          </div>
-          <div class="leading-relaxed space-y-1">${contentHtml}</div>
-          <div class="text-[10px] text-[#8696A0] font-mono pt-1 border-t border-white/[0.04] flex items-center justify-between">
-            <span>Synced with 18:00 GST report</span>
-            <span class="text-emerald-400">Logged ✓</span>
-          </div>
-        `;
-
-        wrapper.appendChild(bubble);
-        dynamicMessages.appendChild(wrapper);
-        playReceiveSound(isCritical);
-        scrollChatToBottom();
-      }
-
-      // Simulator Engine: handles prompt scenarios & natural text
-      function triggerScenario(type, customText = '') {
-        getAudioContext();
-        if (typingIndicator) typingIndicator.classList.remove('hidden');
-        scrollChatToBottom();
-
-        if (type === 'leak') {
-          // Scenario 1: Water leak emergency
-          addUserMessage('⚠️ Urgent: Major water leak detected above ceiling in DB room 3rd floor! Water leaking directly onto main switchboard!');
-          
-          setTimeout(() => {
-            if (typingIndicator) typingIndicator.classList.add('hidden');
-            addBotMessage(`
-              <p class="font-bold text-red-400">ELECTRICAL & SAFETY HAZARD DETECTED:</p>
-              <p>• <strong>Incident:</strong> Water ingress above main electrical distribution board (DB Room - 3rd Floor).</p>
-              <p>• <strong>Immediate Action:</strong> Circuit breaker isolation recommended + SMS alert sent to Project Director.</p>
-              <p>• <strong>Dispatch:</strong> On-duty MEP response team notified (Foreman Ahmed mobilized).</p>
-            `, true);
-          }, 900);
-
-        } else if (type === 'hindi') {
-          // Scenario 2: Hindi procurement shortage
-          addUserMessage('सीमेंट खत्म हो गया है, कल सुबह 50 बैग चाहिए वर्ना प्लास्टरिंग रुक जाएगी।');
-          
-          setTimeout(() => {
-            if (typingIndicator) typingIndicator.classList.add('hidden');
-            addBotMessage(`
-              <p class="font-semibold text-emerald-400">🌐 AUTOMATIC TRANSLATION & ORDER TICKET:</p>
-              <p>• <strong>Language Detected:</strong> Hindi (100% confidence)</p>
-              <p>• <strong>Translation:</strong> <em>"Cement is finished, need 50 bags tomorrow morning otherwise plastering will stop."</em></p>
-              <p>• <strong>SiteSmart Action:</strong> Procurement ticket created ➔ <strong>50 bags Portland Cement</strong> added to supplier PO.</p>
-            `, false);
-          }, 900);
-
-        } else if (type === 'arabic') {
-          // Scenario 3: Arabic material arrival
-          addUserMessage('وصلت شاحنة الكابلات 500 متر و4 قواطع رئيسية للموقع وتم التنزيل في المستودع.');
-
-          setTimeout(() => {
-            if (typingIndicator) typingIndicator.classList.add('hidden');
-            addBotMessage(`
-              <p class="font-semibold text-emerald-400">📦 DELIVERY CONFIRMED & INVENTORY UPDATE:</p>
-              <p>• <strong>Language Detected:</strong> Arabic (Site vernacular)</p>
-              <p>• <strong>Translation:</strong> <em>"Cable truck (500m) and 4 main circuit breakers arrived on site and unloaded at storage."</em></p>
-              <p>• <strong>Stock Updated:</strong> +500m Armored Cable 4mm² | +4 Main Breakers 63A logged to site inventory.</p>
-            `, false);
-          }, 900);
-
-        } else if (type === 'invoice') {
-          // Scenario 4: Invoice OCR scan
-          const invoiceCardHtml = `
-            <div class="relative rounded border border-white/20 bg-slate-900 overflow-hidden my-1">
-              <div class="p-2.5 bg-slate-800 border-b border-white/10 flex items-center justify-between text-[11px] font-mono">
-                <span class="flex items-center gap-1.5 text-blue-400">
-                  <span>📷</span> DELIVERY NOTE #DXB-9482
-                </span>
-                <span class="text-slate-400">Al Futtaim Supplies</span>
-              </div>
-              <div class="p-3 text-[10px] font-mono text-slate-300 space-y-1 relative">
-                <!-- Laser beam scan effect -->
-                <div class="absolute left-0 right-0 h-0.5 bg-emerald-400 shadow-[0_0_8px_#10B981] scan-beam z-20"></div>
-                <div>PO: #49201-MEP · MARASI TOWER B</div>
-                <div>50x Bags Portland Cement 50kg ......... 1,250 AED</div>
-                <div>100m PVC Conduit Pipe 25mm .......... 450 AED</div>
-                <div class="font-bold text-white pt-1 border-t border-white/10">TOTAL: 1,700.00 AED (VAT incl.)</div>
-              </div>
-            </div>
-            <p class="text-[11px] text-emerald-300">Scanning laser OCR in progress...</p>
-          `;
-          addUserMessage(invoiceCardHtml, true);
-
-          setTimeout(() => {
-            if (typingIndicator) typingIndicator.classList.add('hidden');
-            addBotMessage(`
-              <p class="font-semibold text-emerald-400">📋 INSTANT OCR EXTRACTION:</p>
-              <p>• <strong>Supplier:</strong> Al Futtaim Electrical & Building Supplies</p>
-              <p>• <strong>Extracted Items:</strong> 50x Portland Cement (1,250 AED) + 100m PVC Conduit (450 AED)</p>
-              <p>• <strong>Total Amount:</strong> <span class="font-mono font-bold text-emerald-300">1,700.00 AED</span> (VAT incl.)</p>
-              <p>• <strong>Status:</strong> Scanned and allocated to Marasi Tower B MEP budget.</p>
-            `, false);
-          }, 1200);
-
-        } else if (type === 'custom') {
-          // Custom user input
-          addUserMessage(customText);
-
-          setTimeout(() => {
-            if (typingIndicator) typingIndicator.classList.add('hidden');
-            
-            const lower = customText.toLowerCase();
-            let botReply = '';
-            let isCrit = false;
-
-            if (lower.includes('leak') || lower.includes('danger') || lower.includes('fire') || lower.includes('hazard') || lower.includes('injury') || lower.includes('water')) {
-              isCrit = true;
-              botReply = `
-                <p class="font-bold text-red-400">🚨 SAFETY HAZARD LOGGED:</p>
-                <p>• <strong>Analyzed Message:</strong> "${customText}"</p>
-                <p>• <strong>Categorization:</strong> Critical Site Hazard</p>
-                <p>• <strong>Action:</strong> Instant emergency DM dispatched to Project Director's phone.</p>
-              `;
-            } else if (lower.includes('aed') || lower.includes('cash') || lower.includes('bought') || lower.includes('paid') || lower.includes('cost') || lower.includes('invoice') || lower.includes('price')) {
-              botReply = `
-                <p class="font-bold text-emerald-400">💰 EXPENSE LOGGED:</p>
-                <p>• <strong>Analyzed Message:</strong> "${customText}"</p>
-                <p>• <strong>Categorization:</strong> Petty Cash Expense</p>
-                <p>• <strong>Action:</strong> Added to daily project cost ledger.</p>
-              `;
-            } else if (lower.includes('delivery') || lower.includes('received') || lower.includes('truck') || lower.includes('cement') || lower.includes('cable') || lower.includes('pipe')) {
-              botReply = `
-                <p class="font-bold text-amber-300">📦 DELIVERY LOGGED:</p>
-                <p>• <strong>Analyzed Message:</strong> "${customText}"</p>
-                <p>• <strong>Categorization:</strong> Material Delivery</p>
-                <p>• <strong>Action:</strong> Queued for 18:00 GST daily summary.</p>
-              `;
-            } else {
-              botReply = `
-                <p class="font-bold text-blue-400">📊 SITESMART ANALYSIS COMPLETE:</p>
-                <p>• <strong>Analyzed Message:</strong> "${customText}"</p>
-                <p>• <strong>Indexing:</strong> Classified and logged for 18:00 GST briefing.</p>
-                <p>• <strong>Site Impact:</strong> Recorded in daily project log.</p>
-              `;
-            }
-
-            addBotMessage(botReply, isCrit);
-          }, 800);
-        }
-      }
-
-      // Wire Quick Prompt Buttons
-      document.getElementById('prompt-leak')?.addEventListener('click', () => triggerScenario('leak'));
-      document.getElementById('prompt-hindi')?.addEventListener('click', () => triggerScenario('hindi'));
-      document.getElementById('prompt-arabic')?.addEventListener('click', () => triggerScenario('arabic'));
-      document.getElementById('prompt-invoice')?.addEventListener('click', () => triggerScenario('invoice'));
-
-      // Wire Input & Send Button
-      function handleSendInput() {
-        const text = chatInput.value.trim();
-        if (text) {
-          triggerScenario('custom', text);
-          chatInput.value = '';
-        }
-      }
-
-      chatSendBtn?.addEventListener('click', handleSendInput);
-      chatInput?.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          handleSendInput();
-        }
-      });
-
-      // Clear chat
-      clearChatBtn?.addEventListener('click', () => {
-        dynamicMessages.innerHTML = '';
-        playSentSound();
-      });
-
-
-      // ==========================================
-      // 4. FAQ ACCORDION & MOBILE NAVIGATION
-      // ==========================================
+      // FAQ Accordion
       document.querySelectorAll('.faq-toggle').forEach(button => {
         button.addEventListener('click', () => {
           const content = button.nextElementSibling;
@@ -1318,6 +1051,7 @@
         });
       });
 
+      // Mobile Menu
       const mobileBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1329,6 +1063,39 @@
           link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
           });
+        });
+      }
+      // Preview Tabs Switcher (WhatsApp vs Telegram Mockup)
+      const waTab = document.getElementById('view-whatsapp-tab');
+      const tgTab = document.getElementById('view-telegram-tab');
+      const chatHeader = document.getElementById('chat-mockup-header');
+      const senderName = document.getElementById('chat-sender-name');
+      const platformBadge = document.getElementById('platform-indicator-badge');
+      const chatFrame = document.getElementById('chat-mockup-frame');
+
+      if (waTab && tgTab) {
+        waTab.addEventListener('click', () => {
+          waTab.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all bg-[#25D366]/20 border border-[#25D366]/50 text-[#25D366] cursor-pointer';
+          tgTab.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all bg-white/[0.04] border border-white/[0.08] text-slate-300 hover:text-white cursor-pointer';
+          if (chatHeader) chatHeader.style.backgroundColor = '#1F2C34';
+          if (chatFrame) chatFrame.style.backgroundColor = '#0B141A';
+          if (senderName) senderName.textContent = 'SiteSmart Private Bot';
+          if (platformBadge) {
+            platformBadge.textContent = 'WhatsApp DM';
+            platformBadge.className = 'px-2.5 py-1 rounded bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-[11px] font-mono font-bold flex items-center gap-1';
+          }
+        });
+
+        tgTab.addEventListener('click', () => {
+          tgTab.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all bg-[#229ED9]/20 border border-[#229ED9]/50 text-[#229ED9] cursor-pointer';
+          waTab.className = 'inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all bg-white/[0.04] border border-white/[0.08] text-slate-300 hover:text-white cursor-pointer';
+          if (chatHeader) chatHeader.style.backgroundColor = '#1E2C3A';
+          if (chatFrame) chatFrame.style.backgroundColor = '#17212B';
+          if (senderName) senderName.textContent = '@SiteSmart_Daily_Bot';
+          if (platformBadge) {
+            platformBadge.textContent = 'Telegram Bot';
+            platformBadge.className = 'px-2.5 py-1 rounded bg-[#229ED9]/20 border border-[#229ED9]/40 text-[#229ED9] text-[11px] font-mono font-bold flex items-center gap-1';
+          }
         });
       }
     </script>

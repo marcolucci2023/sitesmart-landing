@@ -1,7 +1,0 @@
-Place your video file here:
-/public/presentation.mp4
-(or directly at the project root /presentation.mp4)
-
-The landing page video player in index.html is already configured to automatically load and stream this file:
-<source src="/presentation.mp4" type="video/mp4">
-<source src="presentation.mp4" type="video/mp4">
