@@ -955,8 +955,11 @@ export default function App() {
                   <span className="text-xs font-mono text-slate-400">Single project</span>
                 </div>
                 <div className="mb-6">
-                  <span className="text-3xl font-extrabold text-white font-mono">99 AED</span>
-                  <span className="text-slate-400 text-xs"> / month</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-extrabold text-white font-mono">$27 USD</span>
+                    <span className="text-slate-400 text-xs"> / month</span>
+                  </div>
+                  <div className="text-xs text-slate-400 font-mono mt-1">~99 AED</div>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-300 mb-8 border-t border-white/[0.06] pt-6 font-normal">
                   <li className="flex items-center gap-2.5">
@@ -1004,8 +1007,11 @@ export default function App() {
                   <span className="text-xs font-mono text-blue-400">2-5 projects</span>
                 </div>
                 <div className="mb-6">
-                  <span className="text-3xl font-extrabold text-white font-mono">199 AED</span>
-                  <span className="text-slate-400 text-xs"> / month</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-extrabold text-white font-mono">$54 USD</span>
+                    <span className="text-slate-400 text-xs"> / month</span>
+                  </div>
+                  <div className="text-xs text-blue-300/80 font-mono mt-1">~199 AED</div>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-200 mb-8 border-t border-white/[0.08] pt-6 font-normal">
                   <li className="flex items-center gap-2.5">
@@ -1058,8 +1064,11 @@ export default function App() {
                   <span className="text-xs font-mono text-[#25D366] font-semibold">Official WhatsApp</span>
                 </div>
                 <div className="mb-6">
-                  <span className="text-3xl font-extrabold text-white font-mono">299 AED</span>
-                  <span className="text-slate-400 text-xs"> / month</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-extrabold text-white font-mono">$81 USD</span>
+                    <span className="text-slate-400 text-xs"> / month</span>
+                  </div>
+                  <div className="text-xs text-emerald-400/80 font-mono mt-1">~299 AED</div>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-300 mb-8 border-t border-white/[0.06] pt-6 font-normal">
                   <li className="flex items-center gap-2.5">
