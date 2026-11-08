@@ -41,7 +41,7 @@ export default function App() {
     }
     // Graceful fallback if Paddle token or priceId is not yet configured
     const msg = encodeURIComponent("Hi SiteSmart, I want to start my 7-day free trial!");
-    window.open(`https://wa.me/971XXXXXXXX?text=${msg}`, '_blank');
+    window.open(`https://wa.me/212694835695?text=${msg}`, '_blank');
   };
 
   // State
@@ -459,7 +459,7 @@ export default function App() {
                 </div>
               </div>
               <a
-                href="https://wa.me/971XXXXXXXX?text=Hi%20SiteSmart,%20I%20want%20to%20test%20in%20a%20sandbox%20group"
+                href="https://wa.me/212694835695?text=Hi%20SiteSmart,%20I%20want%20to%20test%20in%20a%20sandbox%20group"
                 className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-[#25D366] hover:bg-[#20bd5a] text-[#07090E] font-bold text-xs uppercase tracking-wider transition-all shadow-md"
               >
                 <span>Test on WhatsApp</span>
@@ -781,7 +781,7 @@ export default function App() {
                   <span>Configured to your project's specific timezone (GST)</span>
                 </span>
                 <a
-                  href="https://wa.me/971XXXXXXXX?text=Hi%20SiteSmart,%20send%20me%20a%20sample%20report"
+                  href="https://wa.me/212694835695?text=Hi%20SiteSmart,%20send%20me%20a%20sample%20report"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline"
                 >
                   <span>Receive a live sample on WhatsApp →</span>
@@ -1205,7 +1205,7 @@ export default function App() {
 
             <div className="text-xs text-slate-300 font-mono">
               <span className="text-slate-400">Contact: </span>
-              <a href="mailto:hello@sitesmart.ai" className="text-slate-300 hover:text-white transition-colors underline underline-offset-4">hello@sitesmart.ai</a>
+              <a href="mailto:sitesmart@protonmail.com" className="text-slate-300 hover:text-white transition-colors underline underline-offset-4">sitesmart@protonmail.com</a>
             </div>
 
             <div className="text-xs text-slate-400 font-mono">
